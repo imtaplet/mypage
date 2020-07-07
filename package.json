@@ -1,0 +1,22 @@
+{
+  "name": "mypage",
+  "version": "1.0.0",
+  "description": "imtaplet's mypage",
+  "main": "index.js",
+  "scripts": {
+    "build": "elm make src/Main.elm --output=app/index.html"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/imtaplet/mypage.git"
+  },
+  "author": "imtaplet",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/imtaplet/mypage/issues"
+  },
+  "homepage": "https://github.com/imtaplet/mypage#readme",
+  "devDependencies": {
+    "elm": "^0.19.1-3"
+  }
+}
