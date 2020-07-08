@@ -1,5 +1,6 @@
 module Main exposing (main)
 
+import Browser
 import Html exposing (..)
 
 
@@ -21,8 +22,8 @@ viewHeader =
         ]
 
 
-main : Html msg
-main =
+view : Html msg
+view =
     div []
         [ viewHeader
         , h2 [] [ text "自己紹介" ]
@@ -36,3 +37,19 @@ main =
         , h2 [] [ text "日記" ]
         , p [] [ text "まだ日記はありません。" ]
         ]
+
+
+main : Program () () ()
+main =
+    Browser.application
+        { init = \_ _ _ -> ( (), Cmd.none )
+        , view =
+            \_ ->
+                { title = "imtaplet's mypage"
+                , body = [ view ]
+                }
+        , update = \_ _ -> ( (), Cmd.none )
+        , subscriptions = \_ -> Sub.none
+        , onUrlRequest = \_ -> ()
+        , onUrlChange = \_ -> ()
+        }
