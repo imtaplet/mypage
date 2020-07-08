@@ -6,7 +6,7 @@ import Articles.ArticlePage_20200708_2
 import Browser
 import Browser.Navigation as Nav
 import Dict
-import Html exposing (Html, a, div, dl, dt, h1, h2, header, li, p, text, ul)
+import Html exposing (Html, a, div, dl, dt, h1, h2, header, li, main_, p, text, ul)
 import Html.Attributes exposing (href)
 import Time
 import Url
@@ -111,8 +111,7 @@ viewMainPage =
                     )
     in
     div []
-        [ viewHeader
-        , h2 [] [ text "自己紹介" ]
+        [ h2 [] [ text "自己紹介" ]
         , p [] [ viewProfile ]
         , dl []
             [ dt [] [ text "趣味" ]
@@ -126,20 +125,28 @@ viewMainPage =
         ]
 
 
+viewPage : Html msg -> Html msg
+viewPage child =
+    div []
+        [ viewHeader
+        , main_ [] [ child ]
+        ]
+
+
 view : Model -> Html Msg
 view model =
     case urlToRoute model.url of
         Just MainPage ->
-            viewMainPage
+            viewMainPage |> viewPage
 
         Just (ArticlePage artcile) ->
-            artcile.view
+            artcile.view |> viewPage
 
         Just NotFoundPage ->
-            text "404 Not Found"
+            text "404 Not Found" |> viewPage
 
         Nothing ->
-            text "404 Not Found"
+            text "404 Not Found" |> viewPage
 
 
 update : Msg -> Model -> ( Model, Cmd msg )
