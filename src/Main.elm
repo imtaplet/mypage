@@ -1,7 +1,46 @@
 module Main exposing (main)
 
+import ArticlePage_20200708
 import Browser
-import Html exposing (..)
+import Browser.Navigation as Nav
+import Html exposing (Html, a, div, dl, dt, h1, h2, header, p, text)
+import Html.Attributes exposing (href)
+import Url
+import Url.Parser exposing ((</>), Parser, map, oneOf, s, top)
+
+
+type alias Model =
+    { key : Nav.Key
+    , url : Url.Url
+    }
+
+
+type Route
+    = MainPage
+    | ArticlePage_20200708
+
+
+routeParser : Parser (Route -> a) a
+routeParser =
+    oneOf
+        [ map MainPage top
+        , map ArticlePage_20200708 (s "articles" </> s "20200708")
+        ]
+
+
+urlToRoute : Url.Url -> Maybe Route
+urlToRoute url =
+    Url.Parser.parse routeParser url
+
+
+init : () -> Url.Url -> Nav.Key -> ( Model, Cmd Msg )
+init flags url key =
+    ( Model key url, Cmd.none )
+
+
+type Msg
+    = LinkClicked Browser.UrlRequest
+    | UrlChanged Url.Url
 
 
 viewProfile : Html msg
@@ -22,8 +61,8 @@ viewHeader =
         ]
 
 
-view : Html msg
-view =
+viewMainPage : Html Msg
+viewMainPage =
     div []
         [ viewHeader
         , h2 [] [ text "自己紹介" ]
@@ -35,21 +74,54 @@ view =
             , dt [] [ text "現在無職で、求職中です。" ]
             ]
         , h2 [] [ text "日記" ]
-        , p [] [ text "まだ日記はありません。" ]
+        , a [ href "/articles/20200708" ] [ text ArticlePage_20200708.title ]
         ]
 
 
-main : Program () () ()
+view : Model -> Html Msg
+view model =
+    case urlToRoute model.url of
+        Just MainPage ->
+            viewMainPage
+
+        Just ArticlePage_20200708 ->
+            ArticlePage_20200708.view
+
+        Nothing ->
+            text "404 Not Found"
+
+
+update : Msg -> Model -> ( Model, Cmd msg )
+update msg model =
+    case msg of
+        LinkClicked urlRequest ->
+            case urlRequest of
+                Browser.Internal url ->
+                    ( model, Nav.pushUrl model.key (Url.toString url) )
+
+                Browser.External href ->
+                    ( model, Nav.load href )
+
+        UrlChanged url ->
+            ( { model | url = url }
+            , Cmd.none
+            )
+
+        _ ->
+            ( model, Cmd.none )
+
+
+main : Program () Model Msg
 main =
     Browser.application
-        { init = \_ _ _ -> ( (), Cmd.none )
+        { init = init
         , view =
-            \_ ->
+            \model ->
                 { title = "imtaplet's mypage"
-                , body = [ view ]
+                , body = [ view model ]
                 }
-        , update = \_ _ -> ( (), Cmd.none )
+        , update = update
         , subscriptions = \_ -> Sub.none
-        , onUrlRequest = \_ -> ()
-        , onUrlChange = \_ -> ()
+        , onUrlRequest = LinkClicked
+        , onUrlChange = UrlChanged
         }
