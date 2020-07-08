@@ -1,12 +1,31 @@
 module Main exposing (main)
 
-import ArticlePage_20200708
+import Article exposing (Article)
+import Articles.ArticlePage_20200708
+import Articles.ArticlePage_20200708_2
 import Browser
 import Browser.Navigation as Nav
-import Html exposing (Html, a, div, dl, dt, h1, h2, header, p, text)
+import Dict
+import Html exposing (Html, a, div, dl, dt, h1, h2, header, li, p, text, ul)
 import Html.Attributes exposing (href)
+import Time
 import Url
-import Url.Parser exposing ((</>), Parser, map, oneOf, s, top)
+import Url.Builder exposing (relative)
+import Url.Parser exposing ((</>), Parser, map, oneOf, s, string, top)
+
+
+articles : Dict.Dict String (Article msg)
+articles =
+    [ Articles.ArticlePage_20200708.article
+    , Articles.ArticlePage_20200708_2.article
+    ]
+        |> List.map (\article -> ( article.title, article ))
+        |> Dict.fromList
+
+
+articlePath : Article msg -> String
+articlePath { title } =
+    relative [ "articles", title ] []
 
 
 type alias Model =
@@ -15,20 +34,37 @@ type alias Model =
     }
 
 
-type Route
+findArticleByTitle : String -> Maybe (Article msg)
+findArticleByTitle title =
+    articles
+        |> Dict.get title
+
+
+type Route msg
     = MainPage
-    | ArticlePage_20200708
+    | ArticlePage (Article msg)
+    | NotFoundPage
 
 
-routeParser : Parser (Route -> a) a
+routeParser : Parser (Route msg -> a) a
 routeParser =
+    let
+        articleOrNotFound : String -> Route msg
+        articleOrNotFound title =
+            case findArticleByTitle title of
+                Just article ->
+                    ArticlePage article
+
+                Nothing ->
+                    NotFoundPage
+    in
     oneOf
         [ map MainPage top
-        , map ArticlePage_20200708 (s "articles" </> s "20200708")
+        , map articleOrNotFound (s "articles" </> string)
         ]
 
 
-urlToRoute : Url.Url -> Maybe Route
+urlToRoute : Url.Url -> Maybe (Route msg)
 urlToRoute url =
     Url.Parser.parse routeParser url
 
@@ -63,6 +99,17 @@ viewHeader =
 
 viewMainPage : Html Msg
 viewMainPage =
+    let
+        articleLinks =
+            articles
+                |> Dict.values
+                |> List.map
+                    (\article ->
+                        li []
+                            [ a [ href (articlePath article) ] [ text article.title ]
+                            ]
+                    )
+    in
     div []
         [ viewHeader
         , h2 [] [ text "自己紹介" ]
@@ -74,7 +121,8 @@ viewMainPage =
             , dt [] [ text "現在無職で、求職中です。" ]
             ]
         , h2 [] [ text "日記" ]
-        , a [ href "/articles/20200708" ] [ text ArticlePage_20200708.title ]
+        , ul []
+            articleLinks
         ]
 
 
@@ -84,8 +132,11 @@ view model =
         Just MainPage ->
             viewMainPage
 
-        Just ArticlePage_20200708 ->
-            ArticlePage_20200708.view
+        Just (ArticlePage artcile) ->
+            artcile.view
+
+        Just NotFoundPage ->
+            text "404 Not Found"
 
         Nothing ->
             text "404 Not Found"
@@ -106,9 +157,6 @@ update msg model =
             ( { model | url = url }
             , Cmd.none
             )
-
-        _ ->
-            ( model, Cmd.none )
 
 
 main : Program () Model Msg
