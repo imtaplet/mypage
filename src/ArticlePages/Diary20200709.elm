@@ -1,4 +1,4 @@
-module ArticlePages.ArticlePage_20200709 exposing (article)
+module ArticlePages.Diary20200709 exposing (article)
 
 import Article exposing (..)
 import Html as H exposing (..)

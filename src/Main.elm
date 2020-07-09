@@ -1,7 +1,7 @@
 module Main exposing (main)
 
 import Article exposing (Article)
-import ArticlePages.ArticlePage_20200709
+import ArticlePages.Diary20200709
 import Browser
 import Browser.Navigation as Nav
 import Dict
@@ -15,7 +15,7 @@ import Url.Parser exposing ((</>), Parser, map, oneOf, s, string, top)
 
 articles : Dict.Dict String (Article msg)
 articles =
-    [ ArticlePages.ArticlePage_20200709.article
+    [ ArticlePages.Diary20200709.article
     ]
         |> List.map (\article -> ( article.title, article ))
         |> Dict.fromList
