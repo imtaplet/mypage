@@ -1,6 +1,6 @@
 module Articles.ArticlePage_20200709 exposing (article)
 
-import Article exposing (Article, viewSignature)
+import Article exposing (..)
 import Html as H exposing (..)
 import Html.Attributes exposing (..)
 import Html.Lazy exposing (lazy)
@@ -13,11 +13,6 @@ article =
     , created = ((*) 1000 >> millisToPosix) 1594284704
     , view = view
     }
-
-
-elm : String -> Html msg
-elm source =
-    pre [] [ code [] [ text source ] ]
 
 
 view : Html msg
@@ -62,7 +57,7 @@ view =
             , code [] [ text "Dict" ]
             , text "やらでまとめておくと良さそうです。"
             ]
-        , elm """
+        , viewElm """
 import ArticlesPage.ArticlePage_20200709
 
 ...
@@ -77,7 +72,7 @@ articlePages =
         , p []
             [ text "記事のレコードには、投稿日時も追加しています。"
             ]
-        , elm """
+        , viewElm """
 articlePage : ArticlePage msg
 articlePage =
     { title = "Today's diary"

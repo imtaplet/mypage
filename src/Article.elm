@@ -1,4 +1,4 @@
-module Article exposing (Article, viewSignature)
+module Article exposing (Article, viewElm, viewSignature)
 
 import Html exposing (..)
 import Time
@@ -9,6 +9,11 @@ type alias Article msg =
     , created : Time.Posix
     , view : Html msg
     }
+
+
+viewElm : String -> Html msg
+viewElm source =
+    pre [] [ code [] [ text source ] ]
 
 
 viewSignature : Article msg -> Html msg
