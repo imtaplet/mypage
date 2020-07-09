@@ -4,13 +4,12 @@ import Article exposing (..)
 import Html as H exposing (..)
 import Html.Attributes exposing (..)
 import Html.Lazy exposing (lazy)
-import Time exposing (millisToPosix)
 
 
 article : Article msg
 article =
     { title = "2020-07-09"
-    , created = ((*) 1000 >> millisToPosix) 1594284704
+    , created = createdBy 1594284704
     , view = view
     }
 

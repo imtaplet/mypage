@@ -1,7 +1,7 @@
-module Article exposing (Article, viewElm, viewSignature)
+module Article exposing (Article, createdBy, viewElm, viewSignature)
 
 import Html exposing (..)
-import Time
+import Time exposing (Posix, millisToPosix)
 
 
 type alias Article msg =
@@ -9,6 +9,13 @@ type alias Article msg =
     , created : Time.Posix
     , view : Html msg
     }
+
+
+createdBy : Int -> Posix
+createdBy epochSeconds =
+    epochSeconds
+        * 1000
+        |> millisToPosix
 
 
 viewElm : String -> Html msg
