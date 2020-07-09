@@ -8,7 +8,7 @@ import Html.Lazy exposing (lazy)
 
 article : Article msg
 article =
-    { title = "2020-07-09"
+    { title = "2020-07-09-Diary"
     , created = createdBy 1594284704
     , view = view
     }
