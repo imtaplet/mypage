@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "build": "elm make src/Main.elm --output=app/index.html",
-    "run": "elm-live src/Main.elm"
+    "run": "elm-live src/Main.elm --pushstate"
   },
   "repository": {
     "type": "git",
