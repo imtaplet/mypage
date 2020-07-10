@@ -1,6 +1,7 @@
 #!/bin/sh
 
 TODAY=$(date "+%Y%m%d")
+UNIXTIME=$(date "+%s")
 DIARY_FILENAME=src/ArticlePages/Diary$TODAY.elm
 
 if [ ! -e $DIARY_FILENAME ]
@@ -18,7 +19,7 @@ article : Article msg\n\
 article =\n\
     mkArticle\n\
         { title = \"$(date '+%Y-%m-%d')-Diary\"\n\
-        , created = createdBy $(echo $EPOCHSECONDS)\n\
+        , created = createdBy $UNIXTIME\n\
         }\n\
         [ h2 [] [ text \"$(date '+%Y-%m-%d')の日記\" ]\n\
         , todo\n\
