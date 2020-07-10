@@ -1,22 +1,16 @@
 module ArticlePages.Diary20200709 exposing (article)
 
 import Article exposing (..)
-import Html as H exposing (..)
+import Html exposing (..)
 import Html.Attributes exposing (..)
-import Html.Lazy exposing (lazy)
 
 
 article : Article msg
 article =
-    { title = "2020-07-09-Diary"
-    , created = createdBy 1594284704
-    , view = view
-    }
-
-
-view : Html msg
-view =
-    H.article []
+    mkArticle
+        { title = "2020-07-09-diary"
+        , created = createdBy 1594284704
+        }
         [ h2 [] [ text "2020-07-09の日記" ]
         , p []
             [ text "はじめての日記を書きます。この記事は、"
@@ -63,22 +57,22 @@ import ArticlesPage.ArticlePage_20200709
 
 articlePages : Dict.Dict String (ArticlePage msg)
 articlePages =
-    [ ArticlePages.ArticlePage_20200709.articlePage
-    ]
-        |> List.map (\\article -> ( article.title, article ))
-        |> Dict.fromList
-        """
+[ ArticlePages.ArticlePage_20200709.articlePage
+]
+    |> List.map (\\article -> ( article.title, article ))
+    |> Dict.fromList
+    """
         , p []
             [ text "記事のレコードには、投稿日時も追加しています。"
             ]
         , viewElm """
 articlePage : ArticlePage msg
 articlePage =
-    { title = "Today's diary"
-    , created = ((*) 1000 >> millisToPosix) 1594284704 -- 投稿日時
-    , view = view
-    }
-        """
+{ title = "Today's diary"
+, created = ((*) 1000 >> millisToPosix) 1594284704 -- 投稿日時
+, view = view
+}
+    """
         , p []
             [ text "vim を使っている場合は、"
             , code [] [ text ":r!echo $EPOCHSECONDS" ]
@@ -135,6 +129,4 @@ articlePage =
             , text "やりたいことが増えたら、そのうちサーバーサイドを要求されるかもしれません。"
             , text "そうなったら、どの言語を選択するか悩ましいです。"
             ]
-        , hr [] []
-        , lazy (\_ -> viewSignature article) ()
         ]

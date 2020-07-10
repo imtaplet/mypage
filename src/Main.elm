@@ -17,13 +17,13 @@ articles : Dict.Dict String (Article msg)
 articles =
     [ ArticlePages.Diary20200709.article
     ]
-        |> List.map (\article -> ( article.title, article ))
+        |> List.map (\article -> ( article.meta.title, article ))
         |> Dict.fromList
 
 
 articlePath : Article msg -> String
-articlePath { title } =
-    relative [ "articles", title ] []
+articlePath article =
+    relative [ "articles", article.meta.title ] []
 
 
 type alias Model =
@@ -104,7 +104,7 @@ viewMainPage =
                 |> List.map
                     (\article ->
                         li []
-                            [ a [ href (articlePath article) ] [ text article.title ]
+                            [ a [ href (articlePath article) ] [ text article.meta.title ]
                             ]
                     )
     in

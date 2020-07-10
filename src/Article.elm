@@ -1,13 +1,32 @@
-module Article exposing (Article, createdBy, viewElm, viewSignature)
+module Article exposing (Article, createdBy, mkArticle, viewElm)
 
 import Html exposing (..)
+import Html.Lazy exposing (lazy)
 import Time exposing (Posix, millisToPosix)
 
 
-type alias Article msg =
+type alias ArticleMeta =
     { title : String
-    , created : Time.Posix
+    , created : Posix
+    }
+
+
+type alias Article msg =
+    { meta : ArticleMeta
     , view : Html msg
+    }
+
+
+mkArticle : ArticleMeta -> List (Html msg) -> Article msg
+mkArticle meta content =
+    { meta = meta
+    , view =
+        article []
+            (content
+                ++ [ hr [] []
+                   , lazy (\_ -> viewSignature meta.created) ()
+                   ]
+            )
     }
 
 
@@ -23,8 +42,8 @@ viewElm source =
     pre [] [ code [] [ text source ] ]
 
 
-viewSignature : Article msg -> Html msg
-viewSignature { created } =
+viewSignature : Posix -> Html msg
+viewSignature created =
     span []
         [ text ("POSTED BY imtaplet AT " ++ toUtcString created)
         ]
