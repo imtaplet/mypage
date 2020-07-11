@@ -11,8 +11,8 @@ echo "\
 module ArticlePages.Diary$TODAY exposing (article)\n\
 \n\
 import Article exposing (..)\n\
-import Html exposing (..)\n\
-import Html.Attributes exposing (..)\n\
+import Html.Styled exposing (..)\n\
+import Html.Styled.Attributes exposing (..)\n\
 \n\
 \n\
 article : Article msg\n\
