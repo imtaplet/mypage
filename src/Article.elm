@@ -1,8 +1,8 @@
 module Article exposing (Article, createdBy, mkArticle, viewElm)
 
-import Html exposing (..)
-import Html.Attributes exposing (..)
-import Html.Lazy exposing (lazy)
+import Html.Styled exposing (..)
+import Html.Styled.Attributes exposing (..)
+import Html.Styled.Lazy exposing (lazy)
 import Time exposing (Posix, millisToPosix)
 import Url.Builder exposing (crossOrigin)
 

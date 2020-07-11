@@ -1,8 +1,8 @@
 module ArticlePages.Diary20200709 exposing (article)
 
 import Article exposing (..)
-import Html exposing (..)
-import Html.Attributes exposing (..)
+import Html.Styled exposing (..)
+import Html.Styled.Attributes exposing (..)
 
 
 article : Article msg

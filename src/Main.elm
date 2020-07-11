@@ -5,9 +5,10 @@ import ArticlePages.Diary20200709
 import ArticlePages.Diary20200710
 import Browser
 import Browser.Navigation as Nav
+import Css exposing (backgroundColor, color, hex)
 import Dict
-import Html exposing (Html, a, div, dl, dt, h1, h2, header, li, main_, p, text, ul)
-import Html.Attributes exposing (href)
+import Html.Styled exposing (Html, a, div, dl, dt, h1, h2, header, li, main_, p, text, toUnstyled, ul)
+import Html.Styled.Attributes exposing (css, href)
 import Time
 import Url
 import Url.Builder exposing (relative)
@@ -127,7 +128,12 @@ viewMainPage =
 
 viewPage : Html msg -> Html msg
 viewPage child =
-    div []
+    div
+        [ css
+            [ backgroundColor (hex "000000")
+            , color (hex "FFFFFF")
+            ]
+        ]
         [ viewHeader
         , main_ [] [ child ]
         ]
@@ -173,7 +179,7 @@ main =
         , view =
             \model ->
                 { title = "imtaplet's mypage"
-                , body = [ view model ]
+                , body = [ (view >> toUnstyled) model ]
                 }
         , update = update
         , subscriptions = \_ -> Sub.none
