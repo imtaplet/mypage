@@ -1,16 +1,31 @@
 module Page exposing (viewPage)
 
-import Css exposing (backgroundColor, color, hex, minHeight, vh)
+import Css exposing (..)
 import Html.Styled exposing (..)
 import Html.Styled.Attributes exposing (css, href)
+
+
+viewContainer : List (Html msg) -> Html msg
+viewContainer children =
+    div
+        [ css
+            [ width (px 960)
+            , margin2 (px 0) auto
+            ]
+        ]
+        children
 
 
 viewHeader : Html msg
 viewHeader =
     header []
-        [ nav []
-            [ a [ href "/" ] [ h1 [] [ text "imtaplet's mypage" ] ]
-            , li [] [ a [ href "/articles" ] [ text "記事" ] ]
+        [ viewContainer
+            [ nav []
+                [ a [ href "/" ] [ h1 [] [ text "imtaplet's mypage" ] ]
+                , ul []
+                    [ li [] [ a [ href "/articles" ] [ text "記事" ] ]
+                    ]
+                ]
             ]
         ]
 
@@ -25,5 +40,5 @@ viewPage child =
             ]
         ]
         [ viewHeader
-        , main_ [] [ child ]
+        , main_ [] [ viewContainer [ child ] ]
         ]
