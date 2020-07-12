@@ -8,7 +8,7 @@ import Html.Styled.Attributes exposing (..)
 article : Article msg
 article =
     mkArticle
-        { title = "2020-07-09-diary"
+        { title = "2020-07-09-Diary"
         , created = createdBy 1594284704
         }
         [ h2 [] [ text "2020-07-09の日記" ]
