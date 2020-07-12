@@ -2,13 +2,16 @@ module Page exposing (viewPage)
 
 import Css exposing (backgroundColor, color, hex, minHeight, vh)
 import Html.Styled exposing (..)
-import Html.Styled.Attributes exposing (css)
+import Html.Styled.Attributes exposing (css, href)
 
 
 viewHeader : Html msg
 viewHeader =
     header []
-        [ h1 [] [ text "imtaplet's mypage" ]
+        [ nav []
+            [ a [ href "/" ] [ h1 [] [ text "imtaplet's mypage" ] ]
+            , li [] [ a [ href "/articles" ] [ text "記事" ] ]
+            ]
         ]
 
 

@@ -9,7 +9,7 @@ import Browser.Navigation as Nav
 import Css.Global exposing (global)
 import Css.Reset exposing (ress)
 import Dict
-import Html.Styled exposing (Html, a, div, dl, dt, h2, li, p, text, toUnstyled, ul)
+import Html.Styled exposing (Html, a, div, dl, dt, h2, li, p, section, text, toUnstyled, ul)
 import Html.Styled.Attributes exposing (css, href)
 import Page exposing (viewPage)
 import Time
@@ -47,6 +47,7 @@ findArticleByTitle title =
 
 type Route msg
     = MainPage
+    | ArticleListPage
     | ArticlePage (Article msg)
     | NotFoundPage
 
@@ -65,6 +66,7 @@ routeParser =
     in
     oneOf
         [ map MainPage top
+        , map ArticleListPage (s "articles")
         , map articleOrNotFound (s "articles" </> string)
         ]
 
@@ -129,6 +131,9 @@ view model =
         Just MainPage ->
             viewMainPage |> viewPage
 
+        Just ArticleListPage ->
+            viewArticleList |> viewPage
+
         Just (ArticlePage artcile) ->
             artcile.view |> viewPage
 
@@ -154,6 +159,16 @@ update msg model =
             ( { model | url = url }
             , Cmd.none
             )
+
+
+viewArticleList : Html msg
+viewArticleList =
+    section []
+        (articles
+            |> Dict.values
+            |> List.reverse
+            |> List.map (\article -> article.view)
+        )
 
 
 main : Program () Model Msg
