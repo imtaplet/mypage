@@ -6,12 +6,12 @@ import ArticlePages.Diary20200710
 import ArticlePages.Diary20200712
 import Browser
 import Browser.Navigation as Nav
-import Css exposing (backgroundColor, color, hex, minHeight, vh)
 import Css.Global exposing (global)
 import Css.Reset exposing (ress)
 import Dict
-import Html.Styled exposing (Html, a, div, dl, dt, h1, h2, header, li, main_, p, text, toUnstyled, ul)
+import Html.Styled exposing (Html, a, div, dl, dt, h2, li, p, text, toUnstyled, ul)
 import Html.Styled.Attributes exposing (css, href)
+import Page exposing (viewPage)
 import Time
 import Url
 import Url.Builder exposing (relative)
@@ -95,13 +95,6 @@ viewProfile =
 """
 
 
-viewHeader : Html msg
-viewHeader =
-    header []
-        [ h1 [] [ text "imtaplet's mypage" ]
-        ]
-
-
 viewMainPage : Html Msg
 viewMainPage =
     let
@@ -127,20 +120,6 @@ viewMainPage =
         , h2 [] [ text "日記" ]
         , ul []
             articleLinks
-        ]
-
-
-viewPage : Html msg -> Html msg
-viewPage child =
-    div
-        [ css
-            [ backgroundColor (hex "000000")
-            , color (hex "FFFFFF")
-            , minHeight (vh 100)
-            ]
-        ]
-        [ viewHeader
-        , main_ [] [ child ]
         ]
 
 
