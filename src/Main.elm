@@ -6,7 +6,7 @@ import ArticlePages.Diary20200710
 import ArticlePages.Diary20200712
 import Browser
 import Browser.Navigation as Nav
-import Css exposing (backgroundColor, color, hex)
+import Css exposing (backgroundColor, color, hex, minHeight, vh)
 import Css.Global exposing (global)
 import Css.Reset exposing (ress)
 import Dict
@@ -136,6 +136,7 @@ viewPage child =
         [ css
             [ backgroundColor (hex "000000")
             , color (hex "FFFFFF")
+            , minHeight (vh 100)
             ]
         ]
         [ viewHeader
