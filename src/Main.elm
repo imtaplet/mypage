@@ -3,6 +3,7 @@ module Main exposing (main)
 import Article exposing (Article)
 import ArticlePages.Diary20200709
 import ArticlePages.Diary20200710
+import ArticlePages.Diary20200712
 import Browser
 import Browser.Navigation as Nav
 import Css exposing (backgroundColor, color, hex)
@@ -19,6 +20,7 @@ articles : Dict.Dict String (Article msg)
 articles =
     [ ArticlePages.Diary20200709.article
     , ArticlePages.Diary20200710.article
+    , ArticlePages.Diary20200712.article
     ]
         |> List.map (\article -> ( article.meta.title, article ))
         |> Dict.fromList
