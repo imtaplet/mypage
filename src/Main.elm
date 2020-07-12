@@ -7,6 +7,8 @@ import ArticlePages.Diary20200712
 import Browser
 import Browser.Navigation as Nav
 import Css exposing (backgroundColor, color, hex)
+import Css.Global exposing (global)
+import Css.Reset exposing (ress)
 import Dict
 import Html.Styled exposing (Html, a, div, dl, dt, h1, h2, header, li, main_, p, text, toUnstyled, ul)
 import Html.Styled.Attributes exposing (css, href)
@@ -181,7 +183,10 @@ main =
         , view =
             \model ->
                 { title = "imtaplet's mypage"
-                , body = [ (view >> toUnstyled) model ]
+                , body =
+                    [ global ress |> toUnstyled
+                    , (view >> toUnstyled) model
+                    ]
                 }
         , update = update
         , subscriptions = \_ -> Sub.none
