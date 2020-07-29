@@ -9,7 +9,7 @@ viewContainer : List (Html msg) -> Html msg
 viewContainer children =
     div
         [ css
-            [ width (px 960)
+            [ maxWidth (px 960)
             , margin2 (px 0) auto
             ]
         ]
