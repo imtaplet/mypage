@@ -11,6 +11,7 @@ import Browser.Navigation as Nav
 import Css.Global exposing (global)
 import Css.Reset exposing (ress)
 import Dict
+import GlobalCss
 import Html.Styled exposing (Html, a, div, dl, dt, h2, li, p, section, text, toUnstyled, ul)
 import Html.Styled.Attributes exposing (css, href)
 import Page exposing (viewPage)
@@ -183,7 +184,7 @@ main =
             \model ->
                 { title = "imtaplet's mypage"
                 , body =
-                    [ global ress |> toUnstyled
+                    [ global (ress ++ GlobalCss.snippets) |> toUnstyled
                     , (view >> toUnstyled) model
                     ]
                 }
