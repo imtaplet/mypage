@@ -32,6 +32,8 @@ snippets =
                 [ display block
                 , overflow scroll
                 , width (pct 100)
+                , backgroundColor (hex "002b36")
+                , color (hex "93a1a1")
                 ]
             ]
         ]
