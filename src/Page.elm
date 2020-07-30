@@ -5,17 +5,26 @@ import Html.Styled exposing (..)
 import Html.Styled.Attributes exposing (css, href)
 
 
-viewContainer : List (Html msg) -> Html msg
-viewContainer children =
+viewHeaderContainer : List (Html msg) -> Html msg
+viewHeaderContainer children =
+    viewContainer
+        [ displayFlex
+        , alignItems center
+        , justifyContent spaceBetween
+        , flexWrap wrap
+        ]
+        children
+
+
+viewContainer : List Style -> List (Html msg) -> Html msg
+viewContainer styles children =
     div
         [ css
-            [ maxWidth (px 960)
-            , margin2 (px 0) auto
-            , displayFlex
-            , alignItems center
-            , justifyContent spaceBetween
-            , flexWrap wrap
-            ]
+            ([ maxWidth (vw 90)
+             , margin2 (px 0) auto
+             ]
+                ++ styles
+            )
         ]
         children
 
@@ -48,7 +57,7 @@ viewHeader =
             li [ css liCss ] [ a [ css aCss, href link ] [ text title ] ]
     in
     header []
-        [ viewContainer
+        [ viewHeaderContainer
             [ a [ css (aCss ++ brandCss), href "/" ] [ h1 [] [ text "imtaplet" ] ]
             , nav []
                 [ ul [ css ulCss ]
@@ -70,5 +79,5 @@ viewPage child =
             ]
         ]
         [ viewHeader
-        , main_ [] [ viewContainer [ child ] ]
+        , main_ [] [ viewContainer [] [ child ] ]
         ]
