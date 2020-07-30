@@ -69,8 +69,16 @@ viewHeader =
         ]
 
 
-viewPage : Html msg -> Html msg
-viewPage child =
+viewPage : List (Html msg) -> Html msg -> Html msg
+viewPage children mainChild =
+    let
+        containeredChildren =
+            children
+                |> List.map (\child -> viewContainer [] [ child ])
+
+        containeredMain =
+            main_ [] [ viewContainer [] [ mainChild ] ]
+    in
     div
         [ css
             [ backgroundColor (hex "000000")
@@ -78,6 +86,7 @@ viewPage child =
             , minHeight (vh 100)
             ]
         ]
-        [ viewHeader
-        , main_ [] [ viewContainer [] [ child ] ]
-        ]
+        (viewHeader
+            :: containeredChildren
+            ++ [ containeredMain ]
+        )

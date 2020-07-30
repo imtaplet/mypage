@@ -17,6 +17,7 @@ import Html.Styled exposing (Html, a, div, dl, dt, h2, li, p, section, text, toU
 import Html.Styled.Attributes exposing (css, href)
 import Page exposing (viewPage)
 import Time
+import TopImage
 import Url
 import Url.Builder exposing (relative)
 import Url.Parser exposing ((</>), Parser, map, oneOf, s, string, top)
@@ -118,22 +119,22 @@ view : Model -> Html Msg
 view model =
     case urlToRoute model.url of
         Just MainPage ->
-            viewMainPage |> viewPage
+            viewMainPage |> viewPage [ TopImage.view ]
 
         Just AboutPage ->
-            AboutPage.view |> viewPage
+            AboutPage.view |> viewPage []
 
         Just ArticleListPage ->
-            viewArticleList |> viewPage
+            viewArticleList |> viewPage []
 
         Just (ArticlePage artcile) ->
-            artcile.view |> viewPage
+            artcile.view |> viewPage []
 
         Just NotFoundPage ->
-            text "404 Not Found" |> viewPage
+            text "404 Not Found" |> viewPage []
 
         Nothing ->
-            text "404 Not Found" |> viewPage
+            text "404 Not Found" |> viewPage []
 
 
 update : Msg -> Model -> ( Model, Cmd msg )
