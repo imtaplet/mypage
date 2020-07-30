@@ -12,7 +12,14 @@ paddingInlineStart arg1 =
 snippets : List Snippet
 snippets =
     [ typeSelector "h2"
-        [ backgroundColor (hex "204051") ]
+        [ textAlign center
+        , padding2 (rem 1.0) (px 0)
+        , fontSize (rem 3.0)
+        ]
+    , typeSelector "h3"
+        [ backgroundColor (hex "204051")
+        , padding2 (rem 1.0) (rem 1.0)
+        ]
     , typeSelector "p"
         [ margin2 (em 1.0) (px 0) ]
     , typeSelector "ol"
