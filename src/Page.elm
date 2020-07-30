@@ -11,6 +11,10 @@ viewContainer children =
         [ css
             [ maxWidth (px 960)
             , margin2 (px 0) auto
+            , displayFlex
+            , alignItems center
+            , justifyContent spaceBetween
+            , flexWrap wrap
             ]
         ]
         children
@@ -18,13 +22,38 @@ viewContainer children =
 
 viewHeader : Html msg
 viewHeader =
+    let
+        brandCss =
+            [ height (rem 6.0)
+            , paddingTop (px 35)
+            ]
+
+        aCss =
+            [ textDecoration none
+            , color (hex "fff")
+            , paddingLeft (rem 2.0)
+            ]
+
+        liCss =
+            [ display inline
+            , fontWeight bold
+            ]
+
+        ulCss =
+            [ margin3 (rem 1) (px 0) (rem 0.5)
+            , textAlign center
+            ]
+
+        menu title link =
+            li [ css liCss ] [ a [ css aCss, href link ] [ text title ] ]
+    in
     header []
         [ viewContainer
-            [ nav []
-                [ a [ href "/" ] [ h1 [] [ text "imtaplet's mypage" ] ]
-                , ul []
-                    [ li [] [ a [ href "/articles" ] [ text "記事" ] ]
-                    , li [] [ a [ href "/about" ] [ text "自己紹介" ] ]
+            [ a [ css (aCss ++ brandCss), href "/" ] [ h1 [] [ text "imtaplet" ] ]
+            , nav []
+                [ ul [ css ulCss ]
+                    [ menu "記事" "/articles"
+                    , menu "自己紹介" "/about"
                     ]
                 ]
             ]
