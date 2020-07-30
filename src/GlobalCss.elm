@@ -14,7 +14,7 @@ snippets =
     [ typeSelector "h2"
         [ textAlign center
         , padding2 (rem 1.0) (px 0)
-        , fontSize (rem 3.0)
+        , fontSize (rem 2.0)
         ]
     , typeSelector "h3"
         [ backgroundColor (hex "204051")
