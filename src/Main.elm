@@ -1,5 +1,6 @@
 module Main exposing (main)
 
+import AboutPage
 import Article exposing (Article)
 import ArticlePages.Diary20200709
 import ArticlePages.Diary20200710
@@ -52,6 +53,7 @@ findArticleByTitle title =
 
 type Route msg
     = MainPage
+    | AboutPage
     | ArticleListPage
     | ArticlePage (Article msg)
     | NotFoundPage
@@ -71,6 +73,7 @@ routeParser =
     in
     oneOf
         [ map MainPage top
+        , map AboutPage (s "about")
         , map ArticleListPage (s "articles")
         , map articleOrNotFound (s "articles" </> string)
         ]
@@ -91,17 +94,6 @@ type Msg
     | UrlChanged Url.Url
 
 
-viewProfile : Html msg
-viewProfile =
-    text """
-こんばんは。imtaplet(いんたぷれっと)と申します‼
-私のマイページにアクセスしていただいて、ありがとうございます。
-ここには、私の学習記録や日記などを書いていく予定です。
-
-ノートパソコンひとつで食べていけたらいいなと思って、プログラミングを勉強しています。でも私はメンタルが弱くて社会性はあまりないので、半分叶わない夢だと諦めています。
-"""
-
-
 viewMainPage : Html Msg
 viewMainPage =
     let
@@ -116,15 +108,7 @@ viewMainPage =
                     )
     in
     div []
-        [ h2 [] [ text "自己紹介" ]
-        , p [] [ viewProfile ]
-        , dl []
-            [ dt [] [ text "趣味" ]
-            , dt [] [ text "チャットやTwitterなどのテキストコミュニケーションが趣味です。" ]
-            , dt [] [ text "仕事" ]
-            , dt [] [ text "現在無職で、求職中です。" ]
-            ]
-        , h2 [] [ text "日記" ]
+        [ h2 [] [ text "最近書いた日記" ]
         , ul []
             articleLinks
         ]
@@ -135,6 +119,9 @@ view model =
     case urlToRoute model.url of
         Just MainPage ->
             viewMainPage |> viewPage
+
+        Just AboutPage ->
+            AboutPage.view |> viewPage
 
         Just ArticleListPage ->
             viewArticleList |> viewPage

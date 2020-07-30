@@ -24,6 +24,7 @@ viewHeader =
                 [ a [ href "/" ] [ h1 [] [ text "imtaplet's mypage" ] ]
                 , ul []
                     [ li [] [ a [ href "/articles" ] [ text "記事" ] ]
+                    , li [] [ a [ href "/about" ] [ text "自己紹介" ] ]
                     ]
                 ]
             ]
