@@ -22,7 +22,7 @@ snippets =
         ]
     , typeSelector "article"
         [ backgroundColor (hex "073642")
-        , padding2 (rem 2.0) (rem 2.0)
+        , padding4 (px 0) (rem 2.0) (rem 2.0) (rem 2.0)
         , marginTop (rem 2.0)
         ]
     , typeSelector "p"
