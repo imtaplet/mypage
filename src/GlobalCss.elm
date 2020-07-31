@@ -21,9 +21,13 @@ snippets =
         , padding2 (rem 1.0) (rem 1.0)
         ]
     , typeSelector "article"
+        [ nthOfType "n+2"
+            [ marginTop (rem 2.0)
+            ]
+        ]
+    , typeSelector "article"
         [ backgroundColor (hex "073642")
         , padding4 (px 0) (rem 2.0) (rem 2.0) (rem 2.0)
-        , marginTop (rem 2.0)
         ]
     , typeSelector "p"
         [ margin2 (em 1.0) (px 0) ]
