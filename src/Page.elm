@@ -1,5 +1,6 @@
 module Page exposing (viewPage)
 
+import ColorScheme exposing (..)
 import Css exposing (..)
 import Html.Styled exposing (..)
 import Html.Styled.Attributes exposing (css, href)
@@ -39,7 +40,7 @@ viewHeader =
 
         aCss =
             [ textDecoration none
-            , color (hex "fff")
+            , color lightTextColor
             , paddingLeft (rem 2.0)
             ]
 
@@ -81,8 +82,7 @@ viewPage children mainChild =
     in
     div
         [ css
-            [ backgroundColor (hex "000000")
-            , color (hex "FFFFFF")
+            [ color lightTextColor
             , minHeight (vh 100)
             ]
         ]

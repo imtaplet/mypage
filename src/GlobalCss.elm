@@ -1,5 +1,6 @@
 module GlobalCss exposing (snippets)
 
+import ColorScheme exposing (..)
 import Css exposing (..)
 import Css.Global exposing (Snippet, children, typeSelector)
 
@@ -11,13 +12,15 @@ paddingInlineStart arg1 =
 
 snippets : List Snippet
 snippets =
-    [ typeSelector "h2"
+    [ typeSelector "html"
+        [ backgroundColor baseColor0 ]
+    , typeSelector "h2"
         [ textAlign center
         , padding2 (rem 1.0) (px 0)
         , fontSize (rem 2.0)
         ]
     , typeSelector "h3"
-        [ backgroundColor (hex "204051")
+        [ backgroundColor mainColor2
         , padding2 (rem 1.0) (rem 1.0)
         ]
     , typeSelector "article"
@@ -26,7 +29,7 @@ snippets =
             ]
         ]
     , typeSelector "article"
-        [ backgroundColor (hex "073642")
+        [ backgroundColor mainColor0
         , padding4 (px 0) (rem 2.0) (rem 2.0) (rem 2.0)
         ]
     , typeSelector "p"
@@ -41,8 +44,8 @@ snippets =
                 [ display block
                 , overflow scroll
                 , width (pct 100)
-                , backgroundColor (hex "002b36")
-                , color (hex "93a1a1")
+                , backgroundColor mainColor3
+                , color darkTextColor
                 ]
             ]
         ]

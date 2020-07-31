@@ -1,5 +1,6 @@
 module TopImage exposing (view)
 
+import ColorScheme exposing (..)
 import Css exposing (..)
 import Html.Styled exposing (..)
 import Html.Styled.Attributes exposing (css)
@@ -23,8 +24,8 @@ view =
             , displayFlex
             , justifyContent center
             , alignItems center
-            , backgroundColor (hex "eee8d5")
-            , color (hex "000")
+            , backgroundColor baseColor1
+            , color darkTextColor
             ]
         ]
         [ slogan ]
