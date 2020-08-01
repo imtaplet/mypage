@@ -15,6 +15,8 @@ snippets =
     [ typeSelector "html"
         [ backgroundColor baseColor0
         , color darkTextColor
+        , fontFamilies [ qt "M PLUS Rounded 1c" ]
+        , fontWeight bold
         ]
     , typeSelector "h2"
         [ textAlign center
@@ -38,6 +40,8 @@ snippets =
     , typeSelector "article"
         [ backgroundColor mainColor0
         , color darkTextColor
+        , border3 (px 16) solid articleBorderColor
+        , borderRadius (rem 2.0)
         , padding4 (px 0) (rem 2.0) (rem 2.0) (rem 2.0)
         ]
     , typeSelector "p"

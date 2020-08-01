@@ -27,6 +27,10 @@ mainColor2 =
     hex "60CCF0"
 
 
+articleBorderColor =
+    hex "0b413d"
+
+
 codeBackgroundColor =
     hex "002b36"
 
