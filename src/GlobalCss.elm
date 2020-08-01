@@ -55,6 +55,7 @@ snippets =
         , textOutline (px 2) (hex "16B4E9")
         , padding2 (rem 1.0) (rem 1.0)
         , dropShadow
+        , border3 (px 1) solid (hex "FFF")
         ]
     , typeSelector "p"
         [ color darkTextColor
@@ -102,6 +103,7 @@ snippets =
             , textAlign center
             , verticalAlign middle
             , borderRadius (pct 100)
+            , border3 (px 1) solid (hex "FFF")
             ]
         ]
     , typeSelector "dt"
@@ -117,6 +119,7 @@ snippets =
         , fontSize (rem 1.0)
         , whiteSpace preWrap
         , dropShadow
+        , border3 (px 1) solid (hex "FFF")
         ]
     , typeSelector "dt"
         [ after
@@ -130,6 +133,7 @@ snippets =
             , zIndex (int 1)
             , left (px -10)
             , top (px 10)
+            , borderTop3 (px 1) solid (hex "FFF")
             ]
         ]
 
@@ -149,6 +153,7 @@ snippets =
             , textAlign center
             , verticalAlign middle
             , borderRadius (pct 100)
+            , border3 (px 1) solid (hex "FFF")
             ]
         ]
     , typeSelector "dd"
@@ -165,6 +170,7 @@ snippets =
         , fontSize (rem 1.0)
         , whiteSpace preWrap
         , dropShadow
+        , border3 (px 1) solid (hex "FFF")
         ]
     , typeSelector "dd"
         -- comment head
@@ -179,6 +185,7 @@ snippets =
             , zIndex (int 1)
             , right (px -10) -- diff
             , top (px 10)
+            , borderTop3 (px 1) solid (hex "FFF")
             ]
         ]
     ]
