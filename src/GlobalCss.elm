@@ -32,7 +32,7 @@ snippets =
         ]
     , typeSelector "h2"
         [ textAlign center
-        , color darkTextColor
+        , color articleBorderColor
         , textOutline (px 2) (hex "FFF")
         , whiteSpace noWrap
         , padding2 (rem 1.0) (px 0)
