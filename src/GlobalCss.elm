@@ -41,7 +41,7 @@ snippets =
     , typeSelector "h3"
         [ backgroundColor mainColor2
         , color lightTextColor
-        , borderRadius (rem 2.0)
+        , borderRadius (rem 1.0)
         , textOutline (px 2) (hex "16B4E9")
         , padding2 (rem 1.0) (rem 1.0)
         ]
@@ -57,7 +57,7 @@ snippets =
         [ backgroundColor mainColor0
         , color darkTextColor
         , border3 (px 16) solid articleBorderColor
-        , borderRadius (rem 2.0)
+        , borderRadius (rem 1.0)
         , padding4 (px 0) (rem 2.0) (rem 2.0) (rem 2.0)
         ]
     , typeSelector "p"
