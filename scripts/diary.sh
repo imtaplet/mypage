@@ -21,7 +21,7 @@ article =\n\
         { title = \"$(date '+%Y-%m-%d')-Diary\"\n\
         , created = createdBy $UNIXTIME\n\
         }\n\
-        [ h2 [] [ text \"$(date '+%Y-%m-%d')の日記\" ]\n\
+        [ h2 [] [ text \"$(date '+%Y年%-m月%-d日')の日記\" ]\n\
         , todo\n\
         ]\n\
 " > $DIARY_FILENAME

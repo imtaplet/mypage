@@ -11,7 +11,7 @@ article =
         { title = "2020-07-09-Diary"
         , created = createdBy 1594284704
         }
-        [ h2 [] [ text "2020-07-09の日記" ]
+        [ h2 [] [ text "2020年7月9日の日記" ]
         , p []
             [ text "はじめての日記を書きます。この記事は、"
             , a [ href "https://elm-lang.org/" ] [ text "プログラミング言語 Elm" ]

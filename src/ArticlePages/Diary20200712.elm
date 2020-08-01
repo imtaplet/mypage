@@ -11,7 +11,7 @@ article =
         { title = "2020-07-12-Diary"
         , created = createdBy 1594512062
         }
-        [ h2 [] [ text "2020-07-12の日記" ]
+        [ h2 [] [ text "2020年7月12日の日記" ]
         , h3 [] [ text "Elm アプリケーションのSEO" ]
         , p []
             [ text "SEOのために、metaタグをいじりたかったのですが、"
