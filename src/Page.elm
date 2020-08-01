@@ -1,4 +1,4 @@
-module Page exposing (viewPage)
+module Page exposing (viewContainer, viewPage)
 
 import ColorScheme exposing (..)
 import Css exposing (..)
@@ -8,7 +8,7 @@ import Html.Styled.Attributes exposing (css, href)
 
 viewHeaderContainer : List (Html msg) -> Html msg
 viewHeaderContainer children =
-    viewContainer
+    viewContainerWithStyles
         [ displayFlex
         , alignItems center
         , justifyContent spaceBetween
@@ -17,8 +17,8 @@ viewHeaderContainer children =
         children
 
 
-viewContainer : List Style -> List (Html msg) -> Html msg
-viewContainer styles children =
+viewContainerWithStyles : List Style -> List (Html msg) -> Html msg
+viewContainerWithStyles styles children =
     div
         [ css
             ([ maxWidth (vw 90)
@@ -28,6 +28,11 @@ viewContainer styles children =
             )
         ]
         children
+
+
+viewContainer : List (Html msg) -> Html msg
+viewContainer children =
+    viewContainerWithStyles [] children
 
 
 viewHeader : Html msg
@@ -70,16 +75,8 @@ viewHeader =
         ]
 
 
-viewPage : List (Html msg) -> Html msg -> Html msg
-viewPage children mainChild =
-    let
-        containeredChildren =
-            children
-                |> List.map (\child -> viewContainer [] [ child ])
-
-        containeredMain =
-            main_ [] [ viewContainer [] [ mainChild ] ]
-    in
+viewPage : List (Html msg) -> Html msg
+viewPage children =
     div
         [ css
             [ color lightTextColor
@@ -87,6 +84,5 @@ viewPage children mainChild =
             ]
         ]
         (viewHeader
-            :: containeredChildren
-            ++ [ containeredMain ]
+            :: children
         )

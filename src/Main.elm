@@ -15,7 +15,7 @@ import Dict
 import GlobalCss
 import Html.Styled exposing (Html, a, div, dl, dt, h2, li, p, section, text, toUnstyled, ul)
 import Html.Styled.Attributes exposing (css, href)
-import Page exposing (viewPage)
+import Page exposing (viewContainer, viewPage)
 import Time
 import TopImage
 import Url
@@ -119,22 +119,32 @@ view : Model -> Html Msg
 view model =
     case urlToRoute model.url of
         Just MainPage ->
-            viewMainPage |> viewPage [ TopImage.view ]
+            [ TopImage.view
+            , viewContainer [ viewMainPage ]
+            ]
+                |> viewPage
 
         Just AboutPage ->
-            AboutPage.view |> viewPage []
+            [ AboutPage.view ]
+                |> viewContainer
+                |> List.singleton
+                |> viewPage
 
         Just ArticleListPage ->
-            viewArticleList |> viewPage []
+            [ viewArticleList ]
+                |> viewPage
 
         Just (ArticlePage artcile) ->
-            artcile.view |> viewPage []
+            [ viewContainer [ artcile.view ] ]
+                |> viewPage
 
         Just NotFoundPage ->
-            text "404 Not Found" |> viewPage []
+            [ text "404 Not Found" ]
+                |> viewPage
 
         Nothing ->
-            text "404 Not Found" |> viewPage []
+            [ text "404 Not Found" ]
+                |> viewPage
 
 
 update : Msg -> Model -> ( Model, Cmd msg )
@@ -156,12 +166,15 @@ update msg model =
 
 viewArticleList : Html msg
 viewArticleList =
+    let
+        viewArticles =
+            articles
+                |> Dict.values
+                |> List.reverse
+                |> List.map (\article -> article.view)
+    in
     section []
-        (articles
-            |> Dict.values
-            |> List.reverse
-            |> List.map (\article -> article.view)
-        )
+        [ viewContainer viewArticles ]
 
 
 main : Program () Model Msg
