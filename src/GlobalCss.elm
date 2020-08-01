@@ -21,6 +21,7 @@ snippets =
     , typeSelector "h2"
         [ textAlign center
         , color darkTextColor
+        , whiteSpace noWrap
         , padding2 (rem 1.0) (px 0)
         , fontSize (rem 2.0)
         ]
