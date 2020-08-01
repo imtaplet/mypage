@@ -28,7 +28,7 @@ mainColor2 =
 
 
 articleBorderColor =
-    hex "0b413d"
+    hex "1eafa2"
 
 
 codeBackgroundColor =
