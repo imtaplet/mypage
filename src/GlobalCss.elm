@@ -43,7 +43,6 @@ snippets =
     , typeSelector "h2"
         [ textAlign center
         , color lightTextColor
-        , textOutline (px 2) lightTextShadowColor
         , whiteSpace noWrap
         , padding2 (rem 1.0) (px 0)
         , fontSize (rem 2.0)
@@ -96,6 +95,7 @@ snippets =
             , lineHeight (rem 5.0)
             , marginLeft (rem -7.0)
             , marginRight (rem 2.0)
+            , color darkTextColor2
             , backgroundColor (hex "C5CCD3")
             , width (rem 5)
             , height (rem 5)
@@ -103,7 +103,7 @@ snippets =
             , textAlign center
             , verticalAlign middle
             , borderRadius (pct 100)
-            , border3 (px 1) solid lightTextShadowColor
+            , border3 (px 1) solid mainColor2
             ]
         ]
     , typeSelector "dt"
@@ -112,6 +112,7 @@ snippets =
         , minHeight (rem 8.0)
         , padding (px 10)
         , backgroundColor (hex "EAEAEA")
+        , color darkTextColor2
         , marginInlineStart (rem 7)
         , borderRadius (px 10)
         , verticalAlign middle
@@ -119,7 +120,6 @@ snippets =
         , fontSize (rem 1.0)
         , whiteSpace preWrap
         , dropShadow
-        , border3 (px 1) solid lightTextShadowColor
         ]
     , typeSelector "dt"
         [ after
@@ -133,7 +133,7 @@ snippets =
             , zIndex (int 1)
             , left (px -24)
             , top (px 24)
-            , borderTop3 (px 1) solid lightTextShadowColor
+            , borderTop3 (px 1) solid mainColor2
             ]
         ]
 
@@ -147,13 +147,14 @@ snippets =
             , marginLeft (rem -8.0)
             , marginRight (rem -8.0)
             , backgroundColor (hex "C5CCD3")
+            , color darkTextColor2
             , width (rem 5)
             , height (rem 5)
             , display inlineBlock
             , textAlign center
             , verticalAlign middle
             , borderRadius (pct 100)
-            , border3 (px 1) solid lightTextShadowColor
+            , border3 (px 1) solid mainColor2
             ]
         ]
     , typeSelector "dd"
@@ -164,13 +165,13 @@ snippets =
         , minHeight (rem 6.0)
         , padding (px 10)
         , backgroundColor (hex "EAEAEA")
+        , color darkTextColor2
         , borderRadius (px 10)
         , verticalAlign middle
         , marginTop (rem 1.0)
         , fontSize (rem 1.0)
         , whiteSpace preWrap
         , dropShadow
-        , border3 (px 1) solid lightTextShadowColor
         ]
     , typeSelector "dd"
         -- comment head
@@ -185,7 +186,7 @@ snippets =
             , zIndex (int 1)
             , right (px -24) -- diff
             , top (px 24)
-            , borderTop3 (px 1) solid lightTextColor
+            , borderTop3 (px 1) solid mainColor1
             ]
         ]
     ]

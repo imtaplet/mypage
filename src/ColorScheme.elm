@@ -53,3 +53,7 @@ codeTextColor =
 
 darkTextColor =
     hex "243B39"
+
+
+darkTextColor2 =
+    hex "0f5751"
