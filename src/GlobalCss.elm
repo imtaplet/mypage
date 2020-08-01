@@ -93,8 +93,8 @@ snippets =
         [ before
             [ property "content" "'面接官'"
             , lineHeight (rem 5.0)
-            , marginLeft (rem -7.0)
-            , marginRight (rem 2.0)
+            , marginLeft (rem -8.0)
+            , marginRight (rem 3.0)
             , color darkTextColor2
             , backgroundColor (hex "C5CCD3")
             , width (rem 5)
@@ -113,10 +113,10 @@ snippets =
         , padding (px 10)
         , backgroundColor (hex "EAEAEA")
         , color darkTextColor2
-        , marginInlineStart (rem 7)
+        , marginInlineStart (rem 8)
         , borderRadius (px 10)
         , verticalAlign middle
-        , marginTop (rem 1.0)
+        , marginTop (rem 2.0)
         , fontSize (rem 1.0)
         , whiteSpace preWrap
         , dropShadow
@@ -132,7 +132,7 @@ snippets =
             , width (px 0)
             , zIndex (int 1)
             , left (px -24)
-            , top (px 24)
+            , top (px 40)
             , borderTop3 (px 1) solid mainColor2
             ]
         ]
@@ -168,7 +168,7 @@ snippets =
         , color darkTextColor2
         , borderRadius (px 10)
         , verticalAlign middle
-        , marginTop (rem 1.0)
+        , marginTop (rem 2.0)
         , fontSize (rem 1.0)
         , whiteSpace preWrap
         , dropShadow
@@ -185,7 +185,7 @@ snippets =
             , width (px 0)
             , zIndex (int 1)
             , right (px -24) -- diff
-            , top (px 24)
+            , top (px 40)
             , borderTop3 (px 1) solid mainColor1
             ]
         ]
