@@ -99,7 +99,7 @@ snippets =
         ]
     , typeSelector "dt"
         [ position relative
-        , maxWidth (vw 30)
+        , maxWidth (pct 100)
         , minHeight (rem 3.0)
         , padding (px 10)
         , backgroundColor (hex "EAEAEA")
@@ -133,7 +133,7 @@ snippets =
             , property "content" "'私'"
             , lineHeight (rem 5.0)
             , marginLeft (rem -8.0)
-            , marginRight (rem -8.0) -- add
+            , marginRight (rem -8.0)
             , backgroundColor (hex "C5CCD3")
             , width (rem 5)
             , height (rem 5)
@@ -146,7 +146,8 @@ snippets =
     , typeSelector "dd"
         -- comment body
         [ position relative
-        , maxWidth (vw 30)
+        , maxWidth (calc (pct 100) minus (rem 8))
+        , width (pct 100)
         , minHeight (rem 6.0)
         , padding (px 10)
         , backgroundColor (hex "EAEAEA")
