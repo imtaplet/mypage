@@ -67,6 +67,11 @@ snippets =
         , fontSize (rem 1.6)
         ]
     , typeSelector "h3"
+        [ before
+            [ property "content" "'◽'"
+            ]
+        ]
+    , typeSelector "h3"
         [ backgroundColor accentColor1
         , color lightTextColor
         , borderRadius (rem 1.0)
