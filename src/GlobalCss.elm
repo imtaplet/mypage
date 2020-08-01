@@ -126,13 +126,13 @@ snippets =
             [ property "content" "''"
             , position absolute
             , borderStyle solid
-            , borderWidth4 (px 10) (px 10) (px 10) (px 0)
+            , borderWidth4 (px 24) (px 24) (px 24) (px 0)
             , borderColor2 transparent (hex "EAEAEA")
             , display block
             , width (px 0)
             , zIndex (int 1)
-            , left (px -10)
-            , top (px 10)
+            , left (px -24)
+            , top (px 24)
             , borderTop3 (px 1) solid (hex "FFF")
             ]
         ]
@@ -178,13 +178,13 @@ snippets =
             [ property "content" "''"
             , position absolute
             , borderStyle solid
-            , borderWidth4 (px 10) (px 0) (px 10) (px 10) -- diff
+            , borderWidth4 (px 24) (px 0) (px 24) (px 24) -- diff
             , borderColor2 transparent (hex "EAEAEA")
             , display block
             , width (px 0)
             , zIndex (int 1)
-            , right (px -10) -- diff
-            , top (px 10)
+            , right (px -24) -- diff
+            , top (px 24)
             , borderTop3 (px 1) solid (hex "FFF")
             ]
         ]
