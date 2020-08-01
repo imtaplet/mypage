@@ -29,7 +29,24 @@ textOutline blurRadius color =
 
 dropShadow : Style
 dropShadow =
-    property "filter" "drop-shadow(2px 2px 14px #E8F8FD)"
+    property "filter"
+        ("drop-shadow(1px 1px 1px "
+            ++ yellowColor.value
+            ++ ")"
+        )
+
+
+dropShadowRainbow : Style
+dropShadowRainbow =
+    property "filter"
+        ("drop-shadow(1px 1px 1px "
+            ++ yellowColor.value
+            ++ ")"
+            ++ " "
+            ++ "drop-shadow(4px 4px 4px "
+            ++ redColor.value
+            ++ ")"
+        )
 
 
 snippets : List Snippet
@@ -53,7 +70,6 @@ snippets =
         , borderRadius (rem 1.0)
         , textOutline (px 1) lightTextShadowColor
         , padding2 (rem 1.0) (rem 1.0)
-        , dropShadow
         , fontWeight bold
         ]
     , everything
@@ -70,7 +86,7 @@ snippets =
         , border3 (px 8) solid accentColor1
         , borderRadius (rem 1.0)
         , padding4 (px 0) (rem 2.0) (rem 2.0) (rem 2.0)
-        , dropShadow
+        , dropShadowRainbow
         ]
     , typeSelector "p"
         [ margin2 (em 1.0) (px 0) ]

@@ -31,6 +31,14 @@ accentColor1 =
     hex "78C4C4"
 
 
+yellowColor =
+    hex "FFF100"
+
+
+redColor =
+    hex "F4C2C2"
+
+
 codeBackgroundColor =
     hex "002b36"
 
