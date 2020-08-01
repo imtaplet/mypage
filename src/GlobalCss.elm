@@ -42,19 +42,20 @@ snippets =
         ]
     , typeSelector "h2"
         [ textAlign center
-        , color articleBorderColor
+        , color accentColor1
         , textOutline (px 2) (hex "FFF")
         , whiteSpace noWrap
         , padding2 (rem 1.0) (px 0)
         , fontSize (rem 2.0)
         ]
     , typeSelector "h3"
-        [ backgroundColor mainColor2
+        [ backgroundColor accentColor1
         , color lightTextColor
         , borderRadius (rem 1.0)
-        , textOutline (px 2) (hex "16B4E9")
+        , textOutline (px 1) (hex "0F5751")
         , padding2 (rem 1.0) (rem 1.0)
         , dropShadow
+        , fontWeight bold
         , border3 (px 1) solid (hex "FFF")
         ]
     , typeSelector "p"
@@ -68,7 +69,7 @@ snippets =
     , typeSelector "article"
         [ backgroundColor mainColor0
         , color darkTextColor
-        , border3 (px 16) solid articleBorderColor
+        , border3 (px 16) solid accentColor1
         , borderRadius (rem 1.0)
         , padding4 (px 0) (rem 2.0) (rem 2.0) (rem 2.0)
         , dropShadow

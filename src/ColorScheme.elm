@@ -27,7 +27,7 @@ mainColor2 =
     hex "60CCF0"
 
 
-articleBorderColor =
+accentColor1 =
     hex "1eafa2"
 
 
@@ -36,7 +36,7 @@ codeBackgroundColor =
 
 
 lightTextColor =
-    hex "fff"
+    hex "D3F8F5"
 
 
 codeTextColor =
