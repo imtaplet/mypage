@@ -39,6 +39,10 @@ lightTextColor =
     hex "D3F8F5"
 
 
+lightTextShadowColor =
+    hex "0F5751"
+
+
 codeTextColor =
     hex "93a1a1"
 
