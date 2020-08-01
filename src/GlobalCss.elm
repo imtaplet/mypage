@@ -45,7 +45,7 @@ snippets =
         , color lightTextColor
         , whiteSpace noWrap
         , padding2 (rem 1.0) (px 0)
-        , fontSize (rem 2.0)
+        , fontSize (rem 1.6)
         ]
     , typeSelector "h3"
         [ backgroundColor accentColor1
