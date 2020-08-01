@@ -99,15 +99,15 @@ snippets =
         ]
     , typeSelector "dt"
         [ position relative
-        , width (pct 40)
+        , maxWidth (vw 30)
         , minHeight (rem 3.0)
         , padding (px 10)
         , backgroundColor (hex "EAEAEA")
-        , marginInlineStart (rem 10.0)
+        , marginInlineStart (rem 7)
         , borderRadius (px 10)
         , verticalAlign middle
         , marginTop (rem 1.0)
-        , fontSize (rem 1.2)
+        , fontSize (rem 1.0)
         , whiteSpace preWrap
         ]
     , typeSelector "dt"
@@ -133,7 +133,7 @@ snippets =
             , property "content" "'私'"
             , lineHeight (rem 5.0)
             , marginLeft (rem -8.0)
-            , marginRight (rem -7.0) -- add
+            , marginRight (rem -8.0) -- add
             , backgroundColor (hex "C5CCD3")
             , width (rem 5)
             , height (rem 5)
@@ -146,15 +146,14 @@ snippets =
     , typeSelector "dd"
         -- comment body
         [ position relative
-        , width (pct 40)
+        , maxWidth (vw 30)
         , minHeight (rem 6.0)
         , padding (px 10)
         , backgroundColor (hex "EAEAEA")
-        , marginInlineStart (rem 16.0)
         , borderRadius (px 10)
         , verticalAlign middle
         , marginTop (rem 1.0)
-        , fontSize (rem 1.2)
+        , fontSize (rem 1.0)
         , whiteSpace preWrap
         ]
     , typeSelector "dd"
