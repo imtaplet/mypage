@@ -8,31 +8,35 @@ import Css exposing (hex)
 
 
 baseColor0 =
-    hex "64A19B"
+    hex "7996B8"
 
 
 baseColor1 =
-    hex "EBD9CC"
+    hex "7D78C4"
 
 
 mainColor0 =
-    hex "B3F2ED"
+    hex "7EB9CF"
 
 
 mainColor1 =
-    hex "027BA3"
+    hex "7EB9CF"
 
 
 mainColor2 =
-    hex "60CCF0"
+    hex "78C4C4"
 
 
 accentColor1 =
-    hex "1eafa2"
+    hex "78C4C4"
 
 
 codeBackgroundColor =
     hex "002b36"
+
+
+mainTextColor =
+    hex "CFF0FC"
 
 
 lightTextColor =
@@ -40,7 +44,7 @@ lightTextColor =
 
 
 lightTextShadowColor =
-    hex "0F5751"
+    hex "16837A"
 
 
 codeTextColor =

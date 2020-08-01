@@ -2,7 +2,7 @@ module GlobalCss exposing (snippets)
 
 import ColorScheme exposing (..)
 import Css exposing (..)
-import Css.Global exposing (Snippet, children, typeSelector)
+import Css.Global exposing (Snippet, children, everything, typeSelector)
 
 
 paddingInlineStart : Length compatible units -> Style
@@ -42,8 +42,8 @@ snippets =
         ]
     , typeSelector "h2"
         [ textAlign center
-        , color accentColor1
-        , textOutline (px 2) (hex "FFF")
+        , color lightTextColor
+        , textOutline (px 2) lightTextShadowColor
         , whiteSpace noWrap
         , padding2 (rem 1.0) (px 0)
         , fontSize (rem 2.0)
@@ -52,14 +52,13 @@ snippets =
         [ backgroundColor accentColor1
         , color lightTextColor
         , borderRadius (rem 1.0)
-        , textOutline (px 1) (hex "0F5751")
+        , textOutline (px 1) lightTextShadowColor
         , padding2 (rem 1.0) (rem 1.0)
         , dropShadow
         , fontWeight bold
-        , border3 (px 1) solid (hex "FFF")
         ]
-    , typeSelector "p"
-        [ color darkTextColor
+    , everything
+        [ color mainTextColor
         ]
     , typeSelector "article"
         [ nthOfType "n+2"
@@ -69,7 +68,7 @@ snippets =
     , typeSelector "article"
         [ backgroundColor mainColor0
         , color darkTextColor
-        , border3 (px 16) solid accentColor1
+        , border3 (px 8) solid accentColor1
         , borderRadius (rem 1.0)
         , padding4 (px 0) (rem 2.0) (rem 2.0) (rem 2.0)
         , dropShadow
