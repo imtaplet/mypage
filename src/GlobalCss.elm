@@ -27,6 +27,11 @@ textOutline blurRadius color =
         )
 
 
+dropShadow : Style
+dropShadow =
+    property "filter" "drop-shadow(2px 2px 14px #E8F8FD)"
+
+
 snippets : List Snippet
 snippets =
     [ typeSelector "html"
@@ -49,6 +54,7 @@ snippets =
         , borderRadius (rem 1.0)
         , textOutline (px 2) (hex "16B4E9")
         , padding2 (rem 1.0) (rem 1.0)
+        , dropShadow
         ]
     , typeSelector "p"
         [ color darkTextColor
@@ -64,6 +70,7 @@ snippets =
         , border3 (px 16) solid articleBorderColor
         , borderRadius (rem 1.0)
         , padding4 (px 0) (rem 2.0) (rem 2.0) (rem 2.0)
+        , dropShadow
         ]
     , typeSelector "p"
         [ margin2 (em 1.0) (px 0) ]
@@ -100,7 +107,7 @@ snippets =
     , typeSelector "dt"
         [ position relative
         , maxWidth (pct 100)
-        , minHeight (rem 3.0)
+        , minHeight (rem 8.0)
         , padding (px 10)
         , backgroundColor (hex "EAEAEA")
         , marginInlineStart (rem 7)
@@ -109,6 +116,7 @@ snippets =
         , marginTop (rem 1.0)
         , fontSize (rem 1.0)
         , whiteSpace preWrap
+        , dropShadow
         ]
     , typeSelector "dt"
         [ after
@@ -156,6 +164,7 @@ snippets =
         , marginTop (rem 1.0)
         , fontSize (rem 1.0)
         , whiteSpace preWrap
+        , dropShadow
         ]
     , typeSelector "dd"
         -- comment head
