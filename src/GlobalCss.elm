@@ -41,6 +41,7 @@ snippets =
     , typeSelector "h3"
         [ backgroundColor mainColor2
         , color lightTextColor
+        , borderRadius (rem 2.0)
         , textOutline (px 2) (hex "16B4E9")
         , padding2 (rem 1.0) (rem 1.0)
         ]
