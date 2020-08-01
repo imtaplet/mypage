@@ -3,27 +3,31 @@ module ColorScheme exposing (..)
 import Css exposing (hex)
 
 
+
+-- Harmony rule: Split Complementary
+
+
 baseColor0 =
-    hex "000"
+    hex "64A19B"
 
 
 baseColor1 =
-    hex "eee8d5"
+    hex "EBD9CC"
 
 
 mainColor0 =
-    hex "073642"
+    hex "B3F2ED"
 
 
 mainColor1 =
-    hex "93a1a1"
+    hex "027BA3"
 
 
 mainColor2 =
-    hex "204051"
+    hex "60CCF0"
 
 
-mainColor3 =
+codeBackgroundColor =
     hex "002b36"
 
 
@@ -31,5 +35,9 @@ lightTextColor =
     hex "fff"
 
 
-darkTextColor =
+codeTextColor =
     hex "93a1a1"
+
+
+darkTextColor =
+    hex "243B39"
