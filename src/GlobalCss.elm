@@ -100,9 +100,9 @@ snippets =
     , typeSelector "p"
         [ margin2 (em 1.0) (px 0) ]
     , typeSelector "ol"
-        [ paddingInlineStart (em 1.0) ]
+        [ paddingInlineStart (em 3.0) ]
     , typeSelector "ul"
-        [ paddingInlineStart (em 1.0) ]
+        [ paddingInlineStart (em 3.0) ]
     , typeSelector "pre"
         [ children
             [ typeSelector "code"
