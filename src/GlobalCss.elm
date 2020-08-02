@@ -1,4 +1,4 @@
-module GlobalCss exposing (snippets)
+module GlobalCss exposing (dropShadow, snippets)
 
 import ColorScheme exposing (..)
 import Css exposing (..)

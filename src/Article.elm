@@ -1,5 +1,8 @@
-module Article exposing (Article, createdBy, mkArticle, viewElm)
+module Article exposing (Article, createdBy, mkArticle, viewElm, viewPienThumbnail)
 
+import ColorScheme exposing (..)
+import Css
+import GlobalCss exposing (dropShadow)
 import Html.Styled exposing (..)
 import Html.Styled.Attributes exposing (..)
 import Html.Styled.Lazy exposing (lazy)
@@ -49,6 +52,31 @@ viewSignature : Posix -> Html msg
 viewSignature created =
     span []
         [ text ("POSTED BY imtaplet AT " ++ toUtcString created)
+        ]
+
+
+viewPienThumbnail : String -> Html msg
+viewPienThumbnail word =
+    div
+        [ css
+            [ Css.height (Css.px 160)
+            , Css.fontSize (Css.vw 4)
+            , Css.textAlign Css.center
+            , Css.backgroundColor (Css.hex "EAEAEA")
+            , Css.borderRadius (Css.rem 1)
+            , Css.marginBottom (Css.rem 1)
+            , Css.displayFlex
+            , Css.justifyContent Css.center
+            , Css.alignItems Css.center
+            , dropShadow
+            ]
+        ]
+        [ p
+            [ css
+                [ Css.color (Css.hex "0f5751")
+                ]
+            ]
+            [ text ("\u{1F97A} 「" ++ word ++ "」") ]
         ]
 
 
