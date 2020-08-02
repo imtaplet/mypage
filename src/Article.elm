@@ -59,7 +59,7 @@ viewPienThumbnail : String -> Html msg
 viewPienThumbnail word =
     div
         [ css
-            [ Css.height (Css.px 160)
+            [ Css.property "height" "calc((90vw - 64px) * 0.61804697157)"
             , Css.fontSize (Css.vw 4)
             , Css.textAlign Css.center
             , Css.backgroundColor (Css.hex "EAEAEA")
