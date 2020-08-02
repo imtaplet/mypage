@@ -1,4 +1,4 @@
-module Page exposing (viewContainer, viewPage)
+module Page exposing (wrapContainer, wrapPage)
 
 import ColorScheme exposing (..)
 import Css exposing (..)
@@ -6,9 +6,9 @@ import Html.Styled exposing (..)
 import Html.Styled.Attributes exposing (css, href)
 
 
-viewHeaderContainer : List (Html msg) -> Html msg
-viewHeaderContainer children =
-    viewContainerWithStyles
+wrapHeaderContainer : List (Html msg) -> Html msg
+wrapHeaderContainer children =
+    wrapContainerWithStyles
         [ displayFlex
         , alignItems center
         , justifyContent spaceBetween
@@ -17,8 +17,8 @@ viewHeaderContainer children =
         children
 
 
-viewContainerWithStyles : List Style -> List (Html msg) -> Html msg
-viewContainerWithStyles styles children =
+wrapContainerWithStyles : List Style -> List (Html msg) -> Html msg
+wrapContainerWithStyles styles children =
     div
         [ css
             ([ maxWidth (vw 90)
@@ -30,9 +30,9 @@ viewContainerWithStyles styles children =
         children
 
 
-viewContainer : List (Html msg) -> Html msg
-viewContainer children =
-    viewContainerWithStyles [] children
+wrapContainer : List (Html msg) -> Html msg
+wrapContainer children =
+    wrapContainerWithStyles [] children
 
 
 viewHeader : Html msg
@@ -63,7 +63,7 @@ viewHeader =
             li [ css liCss ] [ a [ css aCss, href link ] [ text title ] ]
     in
     header []
-        [ viewHeaderContainer
+        [ wrapHeaderContainer
             [ a [ css (aCss ++ brandCss), href "/" ] [ h1 [] [ text "imtaplet" ] ]
             , nav []
                 [ ul [ css ulCss ]
@@ -75,8 +75,8 @@ viewHeader =
         ]
 
 
-viewPage : List (Html msg) -> Html msg
-viewPage children =
+wrapPage : List (Html msg) -> Html msg
+wrapPage children =
     div
         [ css
             [ color lightTextColor
