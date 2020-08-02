@@ -7,6 +7,7 @@ import ArticlePages.Diary20200710
 import ArticlePages.Diary20200712
 import ArticlePages.Diary20200713
 import ArticlePages.Diary20200729
+import ArticlePages.Diary20200802
 import Browser
 import Browser.Navigation as Nav
 import Css.Global exposing (global)
@@ -30,6 +31,7 @@ articles =
     , ArticlePages.Diary20200712.article
     , ArticlePages.Diary20200713.article
     , ArticlePages.Diary20200729.article
+    , ArticlePages.Diary20200802.article
     ]
         |> List.map (\article -> ( article.meta.title, article ))
         |> Dict.fromList
