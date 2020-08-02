@@ -119,7 +119,7 @@ snippets =
         ]
     , typeSelector "dt"
         [ before
-            [ property "content" "'面接官'"
+            [ property "content" "'脳内上司'"
             , lineHeight (rem 5.0)
             , marginLeft (rem -8.0)
             , marginRight (rem 3.0)
