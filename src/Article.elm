@@ -7,19 +7,20 @@ import Time exposing (Posix, millisToPosix)
 import Url.Builder exposing (crossOrigin)
 
 
-type alias ArticleMeta =
+type alias ArticleMeta msg =
     { title : String
     , created : Posix
+    , thumbnail : Html msg
     }
 
 
 type alias Article msg =
-    { meta : ArticleMeta
+    { meta : ArticleMeta msg
     , view : Html msg
     }
 
 
-mkArticle : ArticleMeta -> List (Html msg) -> Article msg
+mkArticle : ArticleMeta msg -> List (Html msg) -> Article msg
 mkArticle meta content =
     { meta = meta
     , view =

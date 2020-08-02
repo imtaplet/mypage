@@ -10,6 +10,7 @@ article =
     mkArticle
         { title = "2020-07-29-Diary"
         , created = createdBy 1595998860
+        , thumbnail = text "\u{1F97A}"
         }
         [ h2 [] [ text "2020年7月29日の日記" ]
         , p [] [ text "マイスリーを入力として、なにか人間が書いたように見えるゴミを出力します。" ]

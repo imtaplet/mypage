@@ -20,8 +20,10 @@ article =\n\
     mkArticle\n\
         { title = \"$(date '+%Y-%m-%d')-Diary\"\n\
         , created = createdBy $UNIXTIME\n\
+        , thumbnail = text \"\u{1F97A}\"
         }\n\
         [ h2 [] [ text \"$(date '+%Y年%-m月%-d日')の日記\" ]\n\
+        , thumbnail
         , todo\n\
         ]\n\
 " > $DIARY_FILENAME

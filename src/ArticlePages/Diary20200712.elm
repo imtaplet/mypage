@@ -10,6 +10,7 @@ article =
     mkArticle
         { title = "2020-07-12-Diary"
         , created = createdBy 1594512062
+        , thumbnail = text "\u{1F97A}"
         }
         [ h2 [] [ text "2020年7月12日の日記" ]
         , h3 [] [ text "Elm アプリケーションのSEO" ]
