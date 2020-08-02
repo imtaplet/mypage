@@ -17,13 +17,17 @@ import Html.Styled.Attributes exposing (..)\n\
 \n\
 article : Article msg\n\
 article =\n\
+    let\n\
+        meta =\n\
+            { title = \"$(date '+%Y-%m-%d')-Diary\"\n\
+            , created = createdBy $UNIXTIME\n\
+            , thumbnail = text \"\u{1F97A}\"\n\
+            }\n\
+    in\n\
     mkArticle\n\
-        { title = \"$(date '+%Y-%m-%d')-Diary\"\n\
-        , created = createdBy $UNIXTIME\n\
-        , thumbnail = text \"\u{1F97A}\"
-        }\n\
+        meta\n\
         [ h2 [] [ text \"$(date '+%Y年%-m月%-d日')の日記\" ]\n\
-        , thumbnail
+        , meta.thumbnail
         , todo\n\
         ]\n\
 " > $DIARY_FILENAME
