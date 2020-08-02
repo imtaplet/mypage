@@ -7,30 +7,30 @@ DIARY_FILENAME=src/ArticlePages/Diary$TODAY.elm
 if [ ! -e $DIARY_FILENAME ]
 then
 
-echo "\
-module ArticlePages.Diary$TODAY exposing (article)\n\
-\n\
-import Article exposing (..)\n\
-import Html.Styled exposing (..)\n\
-import Html.Styled.Attributes exposing (..)\n\
-\n\
-\n\
-article : Article msg\n\
-article =\n\
-    let\n\
-        meta =\n\
-            { title = \"$(date '+%Y-%m-%d')-Diary\"\n\
-            , created = createdBy $UNIXTIME\n\
-            , thumbnail = text \"\u{1F97A}\"\n\
-            }\n\
-    in\n\
-    mkArticle\n\
-        meta\n\
-        [ h2 [] [ text \"$(date '+%Y年%-m月%-d日')の日記\" ]\n\
+cat <<EOS > $DIARY_FILENAME
+module ArticlePages.Diary$TODAY exposing (article)
+
+import Article exposing (..)
+import Html.Styled exposing (..)
+import Html.Styled.Attributes exposing (..)
+
+
+article : Article msg
+article =
+    let
+        meta =
+            { title = "$(date '+%Y-%m-%d')-Diary"
+            , created = createdBy $UNIXTIME
+            , thumbnail = text "\u{1F97A}"
+            }
+    in
+    mkArticle
+        meta
+        [ h2 [] [ text "$(date '+%Y年%-m月%-d日')の日記" ]
         , meta.thumbnail
-        , todo\n\
-        ]\n\
-" > $DIARY_FILENAME
+        , todo
+        ]
+EOS
 
 fi
 
