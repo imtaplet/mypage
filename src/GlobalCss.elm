@@ -114,6 +114,9 @@ snippets =
                 ]
             ]
         ]
+    , typeSelector "dl"
+        [ paddingBottom (rem 2.0)
+        ]
     , typeSelector "dt"
         [ before
             [ property "content" "'面接官'"
