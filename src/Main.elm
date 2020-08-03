@@ -115,6 +115,8 @@ viewMainPage =
                             [ css
                                 ([ Css.listStyleType Css.none
                                  , Css.width (Css.pct 100)
+                                 , Css.marginLeft (Css.vw 0.3)
+                                 , Css.marginRight (Css.vw 0.3)
                                  ]
                                     ++ [ Css.Media.withMedia
                                             [ Css.Media.only Css.Media.screen [ Css.Media.minWidth (Css.px 480) ] ]
@@ -131,11 +133,12 @@ viewMainPage =
                                 ]
                                 [ theArticle.meta.thumbnail
                                     ([ Css.important <| Css.property "height" "calc((100vw - 64px) * 0.61804697157)"
-                                     , Css.important <| Css.fontSize (Css.rem 1)
+                                     , Css.important <| Css.fontSize (Css.vw 4)
                                      ]
                                         ++ [ Css.Media.withMedia
                                                 [ Css.Media.only Css.Media.screen [ Css.Media.minWidth (Css.px 480) ] ]
                                                 [ Css.important <| Css.property "height" "calc((18vw - 64px) * 0.61804697157)"
+                                                , Css.important <| Css.fontSize (Css.vw 1)
                                                 ]
                                            ]
                                     )
@@ -156,7 +159,6 @@ viewMainPage =
                 [ css
                     [ Css.displayFlex
                     , Css.flexWrap Css.wrap
-                    , Css.justifyContent Css.spaceAround
                     ]
                 ]
                 articleLinks
