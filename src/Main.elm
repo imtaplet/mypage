@@ -13,6 +13,7 @@ import Browser
 import Browser.Navigation as Nav
 import Css
 import Css.Global exposing (global)
+import Css.Media
 import Css.Reset exposing (ress)
 import Dict
 import GlobalCss
@@ -112,9 +113,15 @@ viewMainPage =
                     (\theArticle ->
                         li
                             [ css
-                                [ Css.listStyleType Css.none
-                                , Css.width (Css.vw 18)
-                                ]
+                                ([ Css.listStyleType Css.none
+                                 , Css.width (Css.pct 100)
+                                 ]
+                                    ++ [ Css.Media.withMedia
+                                            [ Css.Media.only Css.Media.screen [ Css.Media.minWidth (Css.px 480) ] ]
+                                            [ Css.width (Css.vw 18)
+                                            ]
+                                       ]
+                                )
                             ]
                             [ a
                                 [ href (articlePath theArticle)
@@ -123,9 +130,15 @@ viewMainPage =
                                     ]
                                 ]
                                 [ theArticle.meta.thumbnail
-                                    [ Css.important <| Css.property "height" "calc((18vw - 64px) * 0.61804697157)"
-                                    , Css.important <| Css.fontSize (Css.rem 1)
-                                    ]
+                                    ([ Css.important <| Css.property "height" "calc((100vw - 64px) * 0.61804697157)"
+                                     , Css.important <| Css.fontSize (Css.rem 1)
+                                     ]
+                                        ++ [ Css.Media.withMedia
+                                                [ Css.Media.only Css.Media.screen [ Css.Media.minWidth (Css.px 480) ] ]
+                                                [ Css.important <| Css.property "height" "calc((18vw - 64px) * 0.61804697157)"
+                                                ]
+                                           ]
+                                    )
                                 ]
                             ]
                     )
