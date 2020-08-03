@@ -29,6 +29,7 @@ wrapContainerWithStyles styles children =
                 ++ [ withMedia
                         [ only screen [ Css.Media.minWidth (px 480) ] ]
                         [ maxWidth (vw 60)
+                        , minWidth (px 480)
                         ]
                    ]
             )
