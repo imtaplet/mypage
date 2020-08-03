@@ -150,7 +150,7 @@ viewMainPage =
             , Css.backgroundRepeat Css.repeat
             ]
         ]
-        [ h2 [] [ text "最近書いた日記" ]
+        [ h2 [] [ text "最近書いた絵日記" ]
         , wrapContainer
             [ ul
                 [ css

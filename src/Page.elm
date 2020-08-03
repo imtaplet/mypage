@@ -74,7 +74,7 @@ viewHeader =
             [ a [ css (aCss ++ brandCss), href "/" ] [ h1 [] [ text "imtaplet" ] ]
             , nav []
                 [ ul [ css ulCss ]
-                    [ menu "記事" "/articles"
+                    [ menu "絵日記" "/articles"
                     , menu "自己紹介" "/about"
                     ]
                 ]

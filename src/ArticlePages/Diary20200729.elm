@@ -16,7 +16,7 @@ article =
     in
     mkArticle
         meta
-        [ h2 [] [ text "2020年7月29日の日記" ]
+        [ h2 [] [ text "2020年7月29日の絵日記" ]
         , meta.thumbnail []
         , p [] [ text "マイスリーを入力として、なにか人間が書いたように見えるゴミを出力します。" ]
         , h3 [] [ text "雑記" ]

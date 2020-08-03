@@ -13,7 +13,7 @@ article =
         , created = createdBy 1594642199
         , thumbnail = \_ -> text "\u{1F97A}"
         }
-        [ h2 [] [ text "2020年7月13日の日記" ]
+        [ h2 [] [ text "2020年7月13日の絵日記" ]
         , h3 [] [ text "バグの修正についての工数見積" ]
         , p []
             [ text "バグの見積には調査が必要です。"

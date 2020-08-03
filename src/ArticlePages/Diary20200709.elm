@@ -12,7 +12,7 @@ article =
         , created = createdBy 1594284704
         , thumbnail = \_ -> text "\u{1F97A}"
         }
-        [ h2 [] [ text "2020年7月9日の日記" ]
+        [ h2 [] [ text "2020年7月9日の絵日記" ]
         , p []
             [ text "はじめての日記を書きます。この記事は、"
             , a [ href "https://elm-lang.org/" ] [ text "プログラミング言語 Elm" ]

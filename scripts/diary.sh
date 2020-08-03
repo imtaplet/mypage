@@ -26,7 +26,7 @@ article =
     in
     mkArticle
         meta
-        [ h2 [] [ text "$(date '+%Y年%-m月%-d日')の日記" ]
+        [ h2 [] [ text "$(date '+%Y年%-m月%-d日')の絵日記" ]
         , meta.thumbnail []
         , todo
         ]
