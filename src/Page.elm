@@ -2,6 +2,7 @@ module Page exposing (wrapContainer, wrapPage)
 
 import ColorScheme exposing (..)
 import Css exposing (..)
+import Css.Media exposing (only, screen, withMedia)
 import Html.Styled exposing (..)
 import Html.Styled.Attributes exposing (css, href)
 
@@ -25,6 +26,11 @@ wrapContainerWithStyles styles children =
              , margin2 (px 0) auto
              ]
                 ++ styles
+                ++ [ withMedia
+                        [ only screen [ Css.Media.minWidth (px 480) ] ]
+                        [ maxWidth (vw 60)
+                        ]
+                   ]
             )
         ]
         children

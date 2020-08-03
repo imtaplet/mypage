@@ -2,6 +2,7 @@ module Article exposing (Article, createdBy, mkArticle, viewElm, viewPienThumbna
 
 import ColorScheme exposing (..)
 import Css
+import Css.Media
 import GlobalCss exposing (dropShadow)
 import Html.Styled exposing (..)
 import Html.Styled.Attributes exposing (..)
@@ -59,17 +60,23 @@ viewPienThumbnail : String -> Html msg
 viewPienThumbnail word =
     div
         [ css
-            [ Css.property "height" "calc((90vw - 64px) * 0.61804697157)"
-            , Css.fontSize (Css.vw 4)
-            , Css.textAlign Css.center
-            , Css.backgroundColor (Css.hex "EAEAEA")
-            , Css.borderRadius (Css.rem 1)
-            , Css.marginBottom (Css.rem 1)
-            , Css.displayFlex
-            , Css.justifyContent Css.center
-            , Css.alignItems Css.center
-            , dropShadow
-            ]
+            ([ Css.property "height" "calc((90vw - 64px) * 0.61804697157)"
+             , Css.fontSize (Css.vw 3)
+             , Css.textAlign Css.center
+             , Css.backgroundColor (Css.hex "EAEAEA")
+             , Css.borderRadius (Css.rem 1)
+             , Css.marginBottom (Css.rem 1)
+             , Css.displayFlex
+             , Css.justifyContent Css.center
+             , Css.alignItems Css.center
+             , dropShadow
+             ]
+                ++ [ Css.Media.withMedia
+                        [ Css.Media.only Css.Media.screen [ Css.Media.minWidth (Css.px 480) ] ]
+                        [ Css.property "height" "calc((60vw - 64px) * 0.61804697157)"
+                        ]
+                   ]
+            )
         ]
         [ p
             [ css
