@@ -11,7 +11,7 @@ article =
         meta =
             { title = "2020-08-03-Diary"
             , created = createdBy 1596429080
-            , thumbnail = \styles -> viewPienThumbnail styles "プログラマは、\nみんなドMって本当？"
+            , thumbnail = \styles -> viewPienThumbnail styles "プログラマは、\nみんなドMって本当❓"
             }
 
         me chat =
@@ -26,7 +26,7 @@ article =
         , meta.thumbnail []
         , h3 [] [ text "ある日の昼下がり" ]
         , dl []
-            [ boss "なにかわからないことはないか？"
+            [ boss "なにかわからないことはないか❓"
             , me "プログラマは、みんなドMだって聞いたんですけど、本当ですか❓"
             , boss "だいたい当ってる。お前だって俺の言う事はなんでも聞くだろ。"
             , me "私は、なんでも言う事聞いてくれるコンピュータが好きでプログラマになったんですけど……。"
