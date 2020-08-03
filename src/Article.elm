@@ -61,6 +61,7 @@ viewPienThumbnail word =
     div
         [ css
             ([ Css.property "height" "calc((90vw - 64px) * 0.61804697157)"
+             , Css.whiteSpace Css.pre
              , Css.fontSize (Css.vw 3)
              , Css.textAlign Css.center
              , Css.backgroundColor (Css.hex "EAEAEA")
