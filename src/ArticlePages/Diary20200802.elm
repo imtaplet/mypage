@@ -11,13 +11,13 @@ article =
         meta =
             { title = "2020-08-02-Diary"
             , created = createdBy 1596358214
-            , thumbnail = viewPienThumbnail "デザインは、つらぽよ"
+            , thumbnail = \styles -> viewPienThumbnail styles "デザインは、\nつらぽよ"
             }
     in
     mkArticle
         meta
         [ h2 [] [ text "2020年8月2日の日記" ]
-        , meta.thumbnail
+        , meta.thumbnail []
         , h3 [] [ text "ある日の昼下り" ]
         , dl []
             [ dt [] [ text "進捗はどうだ？" ]

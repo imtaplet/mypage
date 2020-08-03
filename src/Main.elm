@@ -11,11 +11,12 @@ import ArticlePages.Diary20200802
 import ArticlePages.Diary20200803
 import Browser
 import Browser.Navigation as Nav
+import Css
 import Css.Global exposing (global)
 import Css.Reset exposing (ress)
 import Dict
 import GlobalCss
-import Html.Styled exposing (Html, a, div, dl, dt, h2, li, p, section, text, toUnstyled, ul)
+import Html.Styled exposing (Html, a, article, div, dl, dt, h2, li, p, section, text, toUnstyled, ul)
 import Html.Styled.Attributes exposing (css, href)
 import Page exposing (wrapContainer, wrapPage)
 import Time
@@ -105,17 +106,48 @@ viewMainPage =
         articleLinks =
             articles
                 |> Dict.values
+                |> List.reverse
+                |> List.take 3
                 |> List.map
-                    (\article ->
-                        li []
-                            [ a [ href (articlePath article) ] [ text article.meta.title ]
+                    (\theArticle ->
+                        li
+                            [ css
+                                [ Css.listStyleType Css.none
+                                , Css.width (Css.vw 18)
+                                ]
+                            ]
+                            [ a
+                                [ href (articlePath theArticle)
+                                , css
+                                    [ Css.textDecoration Css.none
+                                    ]
+                                ]
+                                [ theArticle.meta.thumbnail
+                                    [ Css.important <| Css.property "height" "calc((18vw - 64px) * 0.61804697157)"
+                                    , Css.important <| Css.fontSize (Css.rem 1)
+                                    ]
+                                ]
                             ]
                     )
     in
-    div []
+    div
+        [ css
+            [ Css.backgroundImage (Css.url "\"data:image/svg+xml,%3Csvg width='40' height='40' viewBox='0 0 40 40' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='%239C92AC' fill-opacity='0.16' fill-rule='evenodd'%3E%3Cpath d='M0 40L40 0H20L0 20M40 40V20L20 40'/%3E%3C/g%3E%3C/svg%3E\"")
+            , Css.backgroundColor (Css.hex "7EB9CF")
+            , Css.backgroundRepeat Css.repeat
+            ]
+        ]
         [ h2 [] [ text "最近書いた日記" ]
-        , ul []
-            articleLinks
+        , wrapContainer
+            [ ul
+                [ css
+                    [ Css.displayFlex
+                    , Css.flexWrap Css.wrap
+                    , Css.justifyContent Css.spaceAround
+                    ]
+                ]
+                articleLinks
+            ]
         ]
 
 
@@ -124,7 +156,7 @@ view model =
     case urlToRoute model.url of
         Just MainPage ->
             [ TopImage.view
-            , wrapContainer [ viewMainPage ]
+            , viewMainPage
             ]
                 |> wrapPage
 

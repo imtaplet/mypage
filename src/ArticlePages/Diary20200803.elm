@@ -11,7 +11,7 @@ article =
         meta =
             { title = "2020-08-03-Diary"
             , created = createdBy 1596429080
-            , thumbnail = viewPienThumbnail "プログラマは、\nみんなドMって本当？"
+            , thumbnail = \styles -> viewPienThumbnail styles "プログラマは、\nみんなドMって本当？"
             }
 
         me chat =
@@ -23,7 +23,7 @@ article =
     mkArticle
         meta
         [ h2 [] [ text "2020年8月3日の日記" ]
-        , meta.thumbnail
+        , meta.thumbnail []
         , h3 [] [ text "ある日の昼下がり" ]
         , dl []
             [ boss "なにかわからないことはないか？"

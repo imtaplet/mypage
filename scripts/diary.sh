@@ -21,13 +21,13 @@ article =
         meta =
             { title = "$(date '+%Y-%m-%d')-Diary"
             , created = createdBy $UNIXTIME
-            , thumbnail = text "\u{1F97A}"
+            , thumbnail = \_ -> viewPienThumbnail [] todo
             }
     in
     mkArticle
         meta
         [ h2 [] [ text "$(date '+%Y年%-m月%-d日')の日記" ]
-        , meta.thumbnail
+        , meta.thumbnail []
         , todo
         ]
 EOS

@@ -14,7 +14,7 @@ import Url.Builder exposing (crossOrigin)
 type alias ArticleMeta msg =
     { title : String
     , created : Posix
-    , thumbnail : Html msg
+    , thumbnail : List Css.Style -> Html msg
     }
 
 
@@ -56,8 +56,8 @@ viewSignature created =
         ]
 
 
-viewPienThumbnail : String -> Html msg
-viewPienThumbnail word =
+viewPienThumbnail : List Css.Style -> String -> Html msg
+viewPienThumbnail styles word =
     div
         [ css
             ([ Css.property "height" "calc((90vw - 64px) * 0.61804697157)"
@@ -72,6 +72,7 @@ viewPienThumbnail word =
              , Css.alignItems Css.center
              , dropShadow
              ]
+                ++ styles
                 ++ [ Css.Media.withMedia
                         [ Css.Media.only Css.Media.screen [ Css.Media.minWidth (Css.px 480) ] ]
                         [ Css.property "height" "calc((60vw - 64px) * 0.61804697157)"
