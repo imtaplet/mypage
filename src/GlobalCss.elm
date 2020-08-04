@@ -125,7 +125,7 @@ snippets =
             , lineHeight (rem 12.0)
             , marginLeft (rem -8.0)
             , marginRight (rem 3.0)
-            , color darkTextColor2
+            , color (hex "EAEAEA")
             , backgroundColor (hex "EAEAEA")
             , minWidth (rem 5)
             , height (rem 5)
@@ -150,7 +150,6 @@ snippets =
         , marginTop (rem 2.0)
         , fontSize (rem 1.0)
         , whiteSpace preWrap
-        , dropShadow
         ]
     , typeSelector "dt"
         [ after
@@ -180,7 +179,7 @@ snippets =
             , marginLeft (rem -8.0)
             , marginRight (rem -8.0)
             , backgroundColor (hex "EAEAEA")
-            , color darkTextColor2
+            , color (hex "EAEAEA")
             , width (rem 5)
             , height (rem 5)
             , display inlineBlock
@@ -203,7 +202,6 @@ snippets =
         , marginTop (rem 2.0)
         , fontSize (rem 1.0)
         , whiteSpace preWrap
-        , dropShadow
         ]
     , typeSelector "dd"
         -- comment head
