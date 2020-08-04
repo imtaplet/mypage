@@ -15,10 +15,10 @@ article =
             }
 
         me chat =
-            dd [ attribute "data-avatar" "脳内上司" ] [ text chat ]
+            dd [ attribute "data-avatar" "私" ] [ text chat ]
 
         boss chat =
-            dt [ attribute "data-avatar" "私" ] [ text chat ]
+            dt [ attribute "data-avatar" "脳内上司" ] [ text chat ]
     in
     mkArticle
         meta
