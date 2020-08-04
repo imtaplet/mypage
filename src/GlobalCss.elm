@@ -120,11 +120,13 @@ snippets =
     , typeSelector "dt"
         [ before
             [ property "content" "'脳内上司'"
-            , lineHeight (rem 5.0)
+            , backgroundImage (url "\"data:image/svg+xml;charset=utf8,%3Csvg version='1.1' xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink'%3E%3Ctext x='0' y='50' font-size='50px' stroke='black'%3E\u{1F9D1}%3C/text%3E%3C/svg%3E\"")
+            , backgroundPosition2 (px 8) (px 8)
+            , lineHeight (rem 12.0)
             , marginLeft (rem -8.0)
             , marginRight (rem 3.0)
             , color darkTextColor2
-            , backgroundColor (hex "C5CCD3")
+            , backgroundColor (hex "EAEAEA")
             , minWidth (rem 5)
             , height (rem 5)
             , display block
@@ -172,10 +174,12 @@ snippets =
         [ before
             [ float right -- add
             , property "content" "'私'"
-            , lineHeight (rem 5.0)
+            , backgroundImage (url "\"data:image/svg+xml;charset=utf8,%3Csvg version='1.1' xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink'%3E%3Ctext x='0' y='50' font-size='50px' stroke='black'%3E\u{1F97A}%3C/text%3E%3C/svg%3E\"")
+            , backgroundPosition2 (px 8) (px 8)
+            , lineHeight (rem 12.0)
             , marginLeft (rem -8.0)
             , marginRight (rem -8.0)
-            , backgroundColor (hex "C5CCD3")
+            , backgroundColor (hex "EAEAEA")
             , color darkTextColor2
             , width (rem 5)
             , height (rem 5)
@@ -191,12 +195,11 @@ snippets =
         [ position relative
         , maxWidth (calc (pct 100) minus (rem 8))
         , width (pct 100)
-        , minHeight (rem 6.0)
+        , minHeight (rem 8.0)
         , padding (px 10)
         , backgroundColor (hex "EAEAEA")
         , color darkTextColor2
         , borderRadius (px 10)
-        , verticalAlign middle
         , marginTop (rem 2.0)
         , fontSize (rem 1.0)
         , whiteSpace preWrap
