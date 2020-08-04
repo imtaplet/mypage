@@ -121,18 +121,18 @@ snippets =
         [ before
             [ property "content" "'脳内上司'"
             , backgroundImage (url "\"data:image/svg+xml;charset=utf8,%3Csvg version='1.1' xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink'%3E%3Ctext x='0' y='50' font-size='50px' stroke='black'%3E\u{1F9D1}%3C/text%3E%3C/svg%3E\"")
-            , backgroundPosition2 (px 8) (px 8)
-            , lineHeight (rem 12.0)
-            , marginLeft (rem -8.0)
+            , backgroundPosition2 (px 12) (px 10)
+            , lineHeight (rem 13.0)
+            , marginLeft (rem -9.0)
             , marginRight (rem 3.0)
             , color (hex "EAEAEA")
             , backgroundColor (hex "EAEAEA")
-            , minWidth (rem 5)
-            , height (rem 5)
+            , minWidth (rem 6)
+            , height (rem 6)
             , display block
             , textAlign center
             , borderRadius (pct 100)
-            , border3 (px 1) solid mainColor2
+            , border3 (px 6) solid accentColor1
             ]
         ]
     , typeSelector "dt"
@@ -174,19 +174,19 @@ snippets =
             [ float right -- add
             , property "content" "'私'"
             , backgroundImage (url "\"data:image/svg+xml;charset=utf8,%3Csvg version='1.1' xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink'%3E%3Ctext x='0' y='50' font-size='50px' stroke='black'%3E\u{1F97A}%3C/text%3E%3C/svg%3E\"")
-            , backgroundPosition2 (px 8) (px 8)
-            , lineHeight (rem 12.0)
+            , backgroundPosition2 (px 12) (px 10)
+            , lineHeight (rem 13.0)
             , marginLeft (rem -8.0)
-            , marginRight (rem -8.0)
+            , marginRight (rem -9.0)
             , backgroundColor (hex "EAEAEA")
             , color (hex "EAEAEA")
-            , width (rem 5)
-            , height (rem 5)
+            , width (rem 6)
+            , height (rem 6)
             , display inlineBlock
             , textAlign center
             , verticalAlign middle
             , borderRadius (pct 100)
-            , border3 (px 1) solid mainColor2
+            , border3 (px 6) solid accentColor1
             ]
         ]
     , typeSelector "dd"
