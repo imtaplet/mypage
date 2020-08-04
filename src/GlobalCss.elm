@@ -120,23 +120,23 @@ snippets =
     , typeSelector "dt"
         [ before
             [ property "content" "'脳内上司'"
-            , float left
             , lineHeight (rem 5.0)
             , marginLeft (rem -8.0)
             , marginRight (rem 3.0)
             , color darkTextColor2
             , backgroundColor (hex "C5CCD3")
-            , width (rem 5)
+            , minWidth (rem 5)
             , height (rem 5)
             , display block
             , textAlign center
-            , verticalAlign middle
             , borderRadius (pct 100)
             , border3 (px 1) solid mainColor2
             ]
         ]
     , typeSelector "dt"
         [ position relative
+        , displayFlex
+        , flexDirection row
         , maxWidth (pct 100)
         , minHeight (rem 8.0)
         , padding (px 10)
