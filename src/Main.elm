@@ -158,6 +158,7 @@ viewMainPage =
                 [ css
                     [ Css.displayFlex
                     , Css.flexWrap Css.wrap
+                    , Css.property "padding-inline-start" "0"
                     ]
                 ]
                 articleLinks
