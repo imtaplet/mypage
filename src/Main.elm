@@ -115,12 +115,11 @@ viewMainPage =
                             [ css
                                 ([ Css.listStyleType Css.none
                                  , Css.width (Css.pct 100)
-                                 , Css.marginLeft (Css.vw 0.3)
-                                 , Css.marginRight (Css.vw 0.3)
+                                 , Css.padding (Css.vw 0.3)
                                  ]
                                     ++ [ Css.Media.withMedia
                                             [ Css.Media.only Css.Media.screen [ Css.Media.minWidth (Css.px 480) ] ]
-                                            [ Css.width (Css.vw 18)
+                                            [ Css.property "width" "calc(100% / 3)"
                                             ]
                                        ]
                                 )
