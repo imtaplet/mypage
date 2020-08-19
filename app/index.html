@@ -12,6 +12,10 @@
   var app = Elm.Main.init({
     node: document.getElementById('app'),
   });
+  app.ports.scrollConversation.subscribe(function() {
+      const chats = document.getElementById("conversation").children;
+      chats[chats.length - 1].scrollIntoView();
+  });
   </script>
 </body>
 </html>

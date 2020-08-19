@@ -11,6 +11,7 @@ import ArticlePages.Diary20200802
 import ArticlePages.Diary20200803
 import Browser
 import Browser.Navigation as Nav
+import ChatPage
 import Css
 import Css.Global exposing (global)
 import Css.Media
@@ -49,6 +50,7 @@ articlePath article =
 type alias Model =
     { key : Nav.Key
     , url : Url.Url
+    , chatPageModel : ChatPage.Model
     }
 
 
@@ -95,12 +97,13 @@ urlToRoute url =
 
 init : () -> Url.Url -> Nav.Key -> ( Model, Cmd Msg )
 init flags url key =
-    ( Model key url, Cmd.none )
+    ( Model key url ChatPage.init, Cmd.none )
 
 
 type Msg
     = LinkClicked Browser.UrlRequest
     | UrlChanged Url.Url
+    | ChatPageMsg ChatPage.Msg
 
 
 viewMainPage : Html Msg
@@ -192,7 +195,7 @@ view model =
                 |> wrapPage
 
         Just ChatPage ->
-            [ wrapContainer [ main_ [] [ h2 [] [ text "チャットページです。" ] ] ] ]
+            [ wrapContainer [ ChatPage.view model.chatPageModel |> Html.Styled.map ChatPageMsg ] ]
                 |> wrapPage
 
         Just NotFoundPage ->
@@ -204,7 +207,7 @@ view model =
                 |> wrapPage
 
 
-update : Msg -> Model -> ( Model, Cmd msg )
+update : Msg -> Model -> ( Model, Cmd Msg )
 update msg model =
     case msg of
         LinkClicked urlRequest ->
@@ -219,6 +222,13 @@ update msg model =
             ( { model | url = url }
             , Cmd.none
             )
+
+        ChatPageMsg chatPageMsg ->
+            let
+                ( newChatPageModel, cmd ) =
+                    ChatPage.update chatPageMsg model.chatPageModel
+            in
+            ( { model | chatPageModel = newChatPageModel }, Cmd.map ChatPageMsg cmd )
 
 
 viewArticleList : Html msg
