@@ -75,6 +75,7 @@ viewHeader =
             , nav []
                 [ ul [ css ulCss ]
                     [ menu "絵日記" "/articles"
+                    , menu "チャット" "/chat"
                     , menu "自己紹介" "/about"
                     ]
                 ]

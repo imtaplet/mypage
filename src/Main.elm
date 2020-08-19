@@ -17,7 +17,7 @@ import Css.Media
 import Css.Reset exposing (ress)
 import Dict
 import GlobalCss
-import Html.Styled exposing (Html, a, article, div, dl, dt, h2, li, p, section, text, toUnstyled, ul)
+import Html.Styled exposing (Html, a, article, div, dl, dt, h2, li, main_, p, section, text, toUnstyled, ul)
 import Html.Styled.Attributes exposing (css, href)
 import Page exposing (wrapContainer, wrapPage)
 import Time
@@ -63,6 +63,7 @@ type Route msg
     | AboutPage
     | ArticleListPage
     | ArticlePage (Article msg)
+    | ChatPage
     | NotFoundPage
 
 
@@ -82,6 +83,7 @@ routeParser =
         [ map MainPage top
         , map AboutPage (s "about")
         , map ArticleListPage (s "articles")
+        , map ChatPage (s "chat")
         , map articleOrNotFound (s "articles" </> string)
         ]
 
@@ -187,6 +189,10 @@ view model =
 
         Just (ArticlePage artcile) ->
             [ wrapContainer [ artcile.view ] ]
+                |> wrapPage
+
+        Just ChatPage ->
+            [ wrapContainer [ main_ [] [ h2 [] [ text "チャットページです。" ] ] ] ]
                 |> wrapPage
 
         Just NotFoundPage ->
